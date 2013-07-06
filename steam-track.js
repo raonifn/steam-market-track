@@ -2,6 +2,7 @@
   var tracker = {
     url : 'http://steamcommunity.com/market/',
     search : '/search/render?start=0&count=300&query=',
+    search_value : 'trading card',
     minCount: 1000,
     threshold: 0.8,
     schedule_time: 15 * 1000
@@ -9,8 +10,9 @@
   
   function updateParams() {
     tracker.minCount = parseInt($('#minCount').val());
-    tracker.threshold = parseInt($('#threshold').val());
+    tracker.threshold = parseFloat($('#threshold').val());
     tracker.schedule_time = parseInt($('#schedule_time').val());
+    tracker.search_value = $('#search_value').val();
   }
   
   function stop() {
@@ -29,9 +31,9 @@
   }
   
   function init() {
-    var tracker = $('#tracker');
-    if (tracker) {
-      tracker.remove();
+    var tracker_div = $('#tracker');
+    if (tracker_div) {
+      tracker_div.remove();
     }
     
     var div = $('<div id="tracker" />');
@@ -47,10 +49,11 @@
       }
     });
 
+    div.append($('<input type="text" id="search_value" value="'+tracker.search_value+'" />'));
     div.append($('<input type="text" id="minCount" value="'+tracker.minCount+'" />'));
     div.append($('<input type="text" id="threshold" value="'+tracker.threshold+'" />'));
     div.append($('<input type="text" id="schedule_time" value="'+tracker.schedule_time+'" />'));
-    var buttonUpdate = $('<input id="update_info" type="button" value="uodate data"/>')
+    var buttonUpdate = $('<input id="update_info" type="button" value="update data"/>')
     buttonUpdate.click(function() {
       var started = stop();
       updateParams();
@@ -64,8 +67,8 @@
     div.append(button);
   }
   
-  function list(name) {
-    var query = tracker.url + tracker.search + name;
+  function list() {
+    var query = tracker.url + tracker.search + encodeURIComponent(tracker.search_value);
     console.info('getting', query);
     $.ajax({
       url: query,
@@ -99,14 +102,14 @@
       },
       success : function(data) {
         if (data.total_count > tracker.minCount) {
-          handleHtml(product, data.results_html);
+          handleHtml(product, data);
         }
       }
     });
   }
   
-  function handleHtml(product, html) {
-    var all = $(html);
+  function handleHtml(product, data) {
+    var all = $(data.results_html);
     var spans = $(all).find('.market_listing_price_with_fee');
     var prices = [];
     spans.each(function(index) {
@@ -123,17 +126,14 @@
     
     var result = prices[0] / avg;
     if (result <= tracker.threshold) {
-      console.info('result', result, ', avg: ',avg, 'min: ', prices[0], 'product: ', product);
+      console.info('result', result, ', avg:',avg, 'min:', prices[0], 'product:', product, ' total:', data.total_count);
     }
   }
   
   function exec() {
     console.info('exec');
-    list('trading%20card');
+    list();
   }
-  
-  
- 
-  
+    
   init();
 })(jQuery);

@@ -5,7 +5,9 @@
     search_value : 'trading card',
     minCount: 1000,
     threshold: 0.8,
-    schedule_time: 15 * 1000
+    schedule_time: 15 * 1000,
+    use_alert: true,
+    alerts: []
   };
   
   function updateParams() {
@@ -13,6 +15,7 @@
     tracker.threshold = parseFloat($('#threshold').val());
     tracker.schedule_time = parseInt($('#schedule_time').val());
     tracker.search_value = $('#search_value').val();
+    tracker.use_alert = $('#use_alert').val();
   }
   
   function stop() {
@@ -37,7 +40,7 @@
     }
     
     var div = $('<div id="tracker" />');
-    div.attr('style', 'z-index: 100; width: 100%; height: 50%; position:absolute; top: 0; left: 0');
+    div.attr('style', 'z-index: 100; width: 100%; height: 50%; position:absolute; top: 0; left: 0; ');
     $('body').prepend(div);
     
     var button = $('<input id="toggle_schedule" type="button" value="toggle schedule"/>');
@@ -53,7 +56,8 @@
     div.append($('<input type="text" id="minCount" value="'+tracker.minCount+'" />'));
     div.append($('<input type="text" id="threshold" value="'+tracker.threshold+'" />'));
     div.append($('<input type="text" id="schedule_time" value="'+tracker.schedule_time+'" />'));
-    var buttonUpdate = $('<input id="update_info" type="button" value="update data"/>')
+    div.append($('<input type="checkbox" id="use_alert" checked="'+tracker.use_alert? 'checked': ''+'" value="true" />'));
+    var buttonUpdate = $('<input id="update_info" type="button" value="update data"/>');
     buttonUpdate.click(function() {
       var started = stop();
       updateParams();
@@ -65,6 +69,11 @@
 
     div.append(buttonUpdate);
     div.append(button);
+
+    if (tracker.alertInterval) {
+      clearInterval(tracker.alertInterval);
+    }
+    setInterval(do_alert, 10 * 1000);
   }
   
   function list() {
@@ -127,8 +136,31 @@
     var result = prices[0] / avg;
     if (result <= tracker.threshold) {
       console.info('result', result, ', avg:',avg, 'min:', prices[0], 'product:', product, ' total:', data.total_count);
+      if (tracker.use_alert) {
+        tracker.alerts.push({
+          result: result,
+          avg: avg,
+          min: price[0],
+          product: product,
+          total: data.total_count
+        });
+      }
     }
   }
+  
+  function do_alert() {
+    if (tracker.alerts && tracker.alerts.length > 0) {
+      var alerts = tracker.alerts;
+      tracker.alerts = [];
+      
+      var result = '';
+      for (var i = 0; i < alerts.length; i++) {
+        result += JSON.stringify(alerts[i]);
+      }
+      alert(result);
+    }
+  }
+  
   
   function exec() {
     console.info('exec');

@@ -7,6 +7,63 @@
     schedule_time: 15 * 1000
   };
   
+  function updateParams() {
+    tracker.minCount = parseInt($('#minCount').val());
+    tracker.threshold = parseInt($('#threshold').val());
+    tracker.schedule_time = parseInt($('#schedule_time').val());
+  }
+  
+  function stop() {
+    var started = tracker.timer;
+    if (started) {
+      console.info('parando');
+      clearInterval(tracker.timer);
+      delete tracker.timer;
+    }
+    return started;
+  }
+  
+  function start() {
+    console.info('agendado'); 
+    tracker.timer = setInterval(exec, tracker.schedule_time);       
+  }
+  
+  function init() {
+    var tracker = $('#tracker');
+    if (tracker) {
+      tracker.remove();
+    }
+    
+    var div = $('<div id="tracker" />');
+    div.attr('style', 'z-index: 100; width: 100%; height: 50%; position:absolute; top: 0; left: 0');
+    $('body').prepend(div);
+    
+    var button = $('<input id="toggle_schedule" type="button" value="toggle schedule"/>');
+    button.click(function() {
+      if (tracker.timer) {
+        stop();        
+      } else {
+        start();
+      }
+    });
+
+    div.append($('<input type="text" id="minCount" value="'+tracker.minCount+'" />'));
+    div.append($('<input type="text" id="threshold" value="'+tracker.threshold+'" />'));
+    div.append($('<input type="text" id="schedule_time" value="'+tracker.schedule_time+'" />'));
+    var buttonUpdate = $('<input id="update_info" type="button" value="uodate data"/>')
+    buttonUpdate.click(function() {
+      var started = stop();
+      updateParams();
+      if (started) {
+        start();
+      }
+    });
+
+
+    div.append(buttonUpdate);
+    div.append(button);
+  }
+  
   function list(name) {
     var query = tracker.url + tracker.search + name;
     console.info('getting', query);
@@ -73,15 +130,10 @@
   function exec() {
     console.info('exec');
     list('trading%20card');
-    schedule();
   }
   
-  function schedule() {
-    console.info('agendado');
-    setTimeout(exec, tracker.schedule_time); 
-  }
   
  
   
-  exec();
+  init();
 })(jQuery);

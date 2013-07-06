@@ -1,7 +1,7 @@
 (function($) {
   var tracker = {
     url : 'http://steamcommunity.com/market/',
-    search : '/search/render?start=0&count=300&query=',
+    search : '/search/render?start=0&count=1000&query=',
     search_value : 'trading card',
     minCount: 1000,
     threshold: 0.8,
@@ -56,7 +56,7 @@
     div.append($('<input type="text" id="minCount" value="'+tracker.minCount+'" />'));
     div.append($('<input type="text" id="threshold" value="'+tracker.threshold+'" />'));
     div.append($('<input type="text" id="schedule_time" value="'+tracker.schedule_time+'" />'));
-    div.append($('<input type="checkbox" id="use_alert" checked="'+tracker.use_alert? 'checked': ''+'" value="true" />'));
+    div.append($('<input type="text" id="use_alert" value="true" />'));
     var buttonUpdate = $('<input id="update_info" type="button" value="update data"/>');
     buttonUpdate.click(function() {
       var started = stop();
@@ -73,7 +73,7 @@
     if (tracker.alertInterval) {
       clearInterval(tracker.alertInterval);
     }
-    setInterval(do_alert, 10 * 1000);
+    tracker.alertInterval = setInterval(do_alert, 10 * 1000);
   }
   
   function list() {
@@ -140,7 +140,7 @@
         tracker.alerts.push({
           result: result,
           avg: avg,
-          min: price[0],
+          min: prices[0],
           product: product,
           total: data.total_count
         });

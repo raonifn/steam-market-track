@@ -1,13 +1,12 @@
 (function($) {
   var tracker = {
     url : 'http://steamcommunity.com/market/',
-    search : '/search?q='
+    search : '/search/render?start=0&count=1000&query='
   };
   
-  function search(product) {
-    var prodUrl = tracker.url + product;
-    var query = prodUrl + '/render/?query=&start=1&count=100'
-    console.info('done', 'getting', query);
+  function list(name) {
+    var query = tracker.url + tracker.search + name;
+    console.info('getting', query);
     $.ajax({
       url: query,
       type: 'GET',
@@ -15,7 +14,30 @@
         console.info('err', err);
       },
       success : function(data) {
-        console.info('ajax done, sucess', data);
+        console.info(data);
+        handleHtmlList(data.results_html);
+      }
+    });
+  }
+  
+  function handleHtmlList(data) {
+    var all = $(data);
+    var links = all.find('div.market_listing_row');
+    $(links).each(function(index) {
+      var lnk = $(this).parent().attr('href');
+      search(lnk);
+    });
+  }
+  
+  function search(product) {
+    var query = product + '/render/?query=&start=1&count=100'
+    $.ajax({
+      url: query,
+      type: 'GET',
+      error: function(err) {
+        console.info('err', err);
+      },
+      success : function(data) {
         handleHtml(product, data.results_html);
       }
     });
@@ -31,20 +53,18 @@
       value = value.replace(/,/, ".");
       prices.push(parseFloat(value));
     });
-    console.info('prices', prices);
-    
     var avg = 0;
     for (var i = 0; i < prices.length; i++) {
       avg += prices[i];
     }
     avg /= prices.length;
     
-    console.info('avg', avg);
-    console.info('min', prices[0]);
-    console.info('result', product, prices[0] / avg);
-    
+    var result = prices[0] / avg;
+    if (result <=0.85) {
+      console.info('result', result, 'product: ', product, ', avg: ',avg, 'min: ', prices[0]);
+    }
   }
   
-  search('/listings/753/SALVADOR');
-  search('/listings/753/MEDIC%20%28Trading%20Card%29');
+  list('trading%20card');
+  
 })(jQuery);

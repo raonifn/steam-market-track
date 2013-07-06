@@ -3,7 +3,7 @@
     url : 'http://steamcommunity.com/market/',
     search : '/search/render?start=0&count=300&query=',
     minCount: 1000,
-    threshold: 0.75,
+    threshold: 0.8,
     schedule_time: 15 * 1000
   };
   

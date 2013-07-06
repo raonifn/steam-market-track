@@ -1,7 +1,10 @@
 (function($) {
   var tracker = {
     url : 'http://steamcommunity.com/market/',
-    search : '/search/render?start=0&count=1000&query='
+    search : '/search/render?start=0&count=300&query=',
+    minCount: 1000,
+    threshold: 0.75
+    
   };
   
   function list(name) {
@@ -38,7 +41,10 @@
         console.info('err', err);
       },
       success : function(data) {
-        handleHtml(product, data.results_html);
+        console.info(data);
+        if (data.total_count > tracker.minCount) {
+          handleHtml(product, data.results_html);
+        }
       }
     });
   }
@@ -60,7 +66,7 @@
     avg /= prices.length;
     
     var result = prices[0] / avg;
-    if (result <=0.85) {
+    if (result <= tracker.threshold) {
       console.info('result', result, 'product: ', product, ', avg: ',avg, 'min: ', prices[0]);
     }
   }

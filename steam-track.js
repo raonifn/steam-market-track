@@ -4,8 +4,8 @@
 		search : '/search/render?start=0&count=100&query=',
 		search_value : 'trading card',
 		minCount : 500,
-		threshold : 0.75,
-		schedule_time : 60 * 1000
+		threshold : 0.8,
+		schedule_time : 40 * 1000
 	};
 
 	function updateParams() {
@@ -44,7 +44,7 @@
 
 		divTracker
 				.attr('style',
-						'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff; opacity: 0.93;');
+						'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff;');
 		$('body').prepend(divTracker);
 
 		var button = $('<input id="toggle_schedule" type="button" value="toggle schedule"/>');
@@ -159,6 +159,7 @@
 		var p = $('<p />');
 		p.append(a);
 		$('#tracker_messages').prepend(p);
+		alert('opa');
 	}
 
 	function clean() {

@@ -5,9 +5,7 @@
 		search_value : 'trading card',
 		minCount : 1000,
 		threshold : 0.8,
-		schedule_time : 15 * 1000,
-		use_alert : true,
-		alerts : []
+		schedule_time : 15 * 1000
 	};
 
 	function updateParams() {
@@ -15,7 +13,6 @@
 		tracker.threshold = parseFloat($('#threshold').val());
 		tracker.schedule_time = parseInt($('#schedule_time').val());
 		tracker.search_value = $('#search_value').val();
-		tracker.use_alert = $('#use_alert').val();
 	}
 
 	function stop() {
@@ -39,9 +36,16 @@
 			tracker_div.remove();
 		}
 
-		var div = $('<div id="tracker" />');
-		div.attr('style', 'z-index: 100; width: 100%; height: 50%; position:absolute; top: 0; left: 0; ');
-		$('body').prepend(div);
+		var divTracker = $('<div id="tracker" />');
+		var form = $('<div id="tracker_form" />');
+		var messages = $('<div id="tracker_messages" style="width: 100%;"/>');
+		divTracker.append(form);
+		divTracker.append(messages);
+
+		divTracker
+				.attr('style',
+						'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff; opacity: 0.85;');
+		$('body').prepend(divTracker);
 
 		var button = $('<input id="toggle_schedule" type="button" value="toggle schedule"/>');
 		button.click(function() {
@@ -51,12 +55,13 @@
 				start();
 			}
 		});
+		var buttonClean = $('<input id="clean_messages" type="button" value="clean messages"/>');
+		buttonClean.click(clean);
 
-		div.append($('<input type="text" id="search_value" value="' + tracker.search_value + '" />'));
-		div.append($('<input type="text" id="minCount" value="' + tracker.minCount + '" />'));
-		div.append($('<input type="text" id="threshold" value="' + tracker.threshold + '" />'));
-		div.append($('<input type="text" id="schedule_time" value="' + tracker.schedule_time + '" />'));
-		div.append($('<input type="text" id="use_alert" value="true" />'));
+		form.append($('<input type="text" id="search_value" value="' + tracker.search_value + '" />'));
+		form.append($('<input type="text" id="minCount" value="' + tracker.minCount + '" />'));
+		form.append($('<input type="text" id="threshold" value="' + tracker.threshold + '" />'));
+		form.append($('<input type="text" id="schedule_time" value="' + tracker.schedule_time + '" />'));
 		var buttonUpdate = $('<input id="update_info" type="button" value="update data"/>');
 		buttonUpdate.click(function() {
 			var started = stop();
@@ -66,13 +71,9 @@
 			}
 		});
 
-		div.append(buttonUpdate);
-		div.append(button);
-
-		if (tracker.alertInterval) {
-			clearInterval(tracker.alertInterval);
-		}
-		tracker.alertInterval = setInterval(do_alert, 10 * 1000);
+		form.append(buttonUpdate);
+		form.append(button);
+		form.append(buttonClean);
 	}
 
 	function list() {
@@ -96,6 +97,7 @@
 		var links = all.find('div.market_listing_row');
 		$(links).each(function(index) {
 			var lnk = $(this).parent().attr('href');
+			lnk = lnk.replace(/\?.*$/, '');
 			search(lnk);
 		});
 	}
@@ -110,6 +112,7 @@
 			},
 			success : function(data) {
 				if (data.total_count > tracker.minCount) {
+					console.info('product: ', query, data.total_count);
 					handleHtml(product, data);
 				}
 			}
@@ -133,32 +136,33 @@
 		avg /= prices.length;
 
 		var result = prices[0] / avg;
+
+		console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
+				data.total_count);
 		if (result <= tracker.threshold) {
-			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
-					data.total_count);
-			if (tracker.use_alert) {
-				tracker.alerts.push({
-					result : result,
-					avg : avg,
-					min : prices[0],
-					product : product,
-					total : data.total_count
-				});
-			}
+			var obj = {
+				result : result,
+				avg : avg,
+				min : prices[0],
+				product : product,
+				total : data.total_count
+			};
+
+			message(obj);
 		}
 	}
 
-	function do_alert() {
-		if (tracker.alerts && tracker.alerts.length > 0) {
-			var alerts = tracker.alerts;
-			tracker.alerts = [];
+	function message(obj) {
+		var a = $('<a />').append(JSON.stringify(obj));
+		a.attr('href', obj.product)
 
-			var result = '';
-			for ( var i = 0; i < alerts.length; i++) {
-				result += JSON.stringify(alerts[i]);
-			}
-			alert(result);
-		}
+		var p = $('<p />');
+		p.append(a);
+		$('#tracker_messages').prepend(p);
+	}
+
+	function clean() {
+		$('#tracker_messages').html('');
 	}
 
 	function exec() {

@@ -1,7 +1,10 @@
 (function($) {
 	var tracker = {
 		url : 'http://steamcommunity.com/market/',
-		search : '/search/render?start=0&count=100&query=',
+		search : '/search/render',
+		search_param : {
+			pagesize: 100
+		},
 		search_value : 'trading card',
 		minCount : 500,
 		threshold : 0.8,
@@ -76,8 +79,12 @@
 		form.append(buttonClean);
 	}
 
-	function list() {
-		var query = tracker.url + tracker.search + encodeURIComponent(tracker.search_value);
+	function list(page) {
+		var start = 0;
+		if (page) {
+			start = page * tracker.search_param.pagesize;
+		}
+		var query = tracker.url + tracker.search +'?count=' + tracker.search_param.pagesize +'&start=' +start + '&query=' + encodeURIComponent(tracker.search_value);
 		console.info('getting', query);
 		$.ajax({
 			url : query,
@@ -87,10 +94,17 @@
 			},
 			success : function(data) {
 				console.info(data);
+				if (start == 0) {
+					var pages = (data.total_count / tracker.search_param.pagesize) + 1;
+					for (var i = 1; i <= pages; i++) {
+						list(i);
+					}
+				}
 				handleHtmlList(data.results_html);
 			}
 		});
 	}
+
 
 	function handleHtmlList(data) {
 		var all = $(data);
@@ -112,7 +126,7 @@
 			},
 			success : function(data) {
 				if (data.total_count > tracker.minCount) {
-					//console.info('product: ', query, data.total_count);
+					// console.info('product: ', query, data.total_count);
 					handleHtml(product, data);
 				}
 			}

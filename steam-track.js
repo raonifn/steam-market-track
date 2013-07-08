@@ -1,11 +1,11 @@
 (function($) {
 	var tracker = {
 		url : 'http://steamcommunity.com/market/',
-		search : '/search/render?start=0&count=1000&query=',
+		search : '/search/render?start=0&count=100&query=',
 		search_value : 'trading card',
-		minCount : 1000,
-		threshold : 0.8,
-		schedule_time : 15 * 1000
+		minCount : 500,
+		threshold : 0.75,
+		schedule_time : 60 * 1000
 	};
 
 	function updateParams() {
@@ -44,7 +44,7 @@
 
 		divTracker
 				.attr('style',
-						'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff; opacity: 0.85;');
+						'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff; opacity: 0.93;');
 		$('body').prepend(divTracker);
 
 		var button = $('<input id="toggle_schedule" type="button" value="toggle schedule"/>');
@@ -103,7 +103,7 @@
 	}
 
 	function search(product) {
-		var query = product + '/render/?query=&start=1&count=100'
+		var query = product + '/render/?query=&start=1&count=20'
 		$.ajax({
 			url : query,
 			type : 'GET',
@@ -112,7 +112,7 @@
 			},
 			success : function(data) {
 				if (data.total_count > tracker.minCount) {
-					console.info('product: ', query, data.total_count);
+					//console.info('product: ', query, data.total_count);
 					handleHtml(product, data);
 				}
 			}

@@ -168,7 +168,8 @@
 
 	function message(obj) {
 		var a = $('<a />').append(JSON.stringify(obj));
-		a.attr('href', obj.product)
+		a.attr('href', obj.product);
+		a.css('color', '#000');
 
 		var p = $('<p />');
 		p.append(a);

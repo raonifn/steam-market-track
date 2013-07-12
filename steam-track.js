@@ -3,9 +3,10 @@
 		url : 'http://steamcommunity.com/market/',
 		search : '/search/render',
 		search_param : {
-			pagesize: 100
+			pagesize : 100
 		},
 		search_value : 'trading card',
+		debug : false,
 		minCount : 500,
 		threshold : 0.8,
 		schedule_time : 40 * 1000
@@ -45,9 +46,8 @@
 		divTracker.append(form);
 		divTracker.append(messages);
 
-		divTracker
-				.attr('style',
-						'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff;');
+		divTracker.attr('style',
+				'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff;');
 		$('body').prepend(divTracker);
 
 		var button = $('<input id="toggle_schedule" type="button" value="toggle schedule"/>');
@@ -84,7 +84,8 @@
 		if (page) {
 			start = page * tracker.search_param.pagesize;
 		}
-		var query = tracker.url + tracker.search +'?count=' + tracker.search_param.pagesize +'&start=' +start + '&query=' + encodeURIComponent(tracker.search_value);
+		var query = tracker.url + tracker.search + '?count=' + tracker.search_param.pagesize + '&start=' + start
+				+ '&query=' + encodeURIComponent(tracker.search_value);
 		console.info('getting', query);
 		$.ajax({
 			url : query,
@@ -96,7 +97,7 @@
 				console.info(data);
 				if (start == 0) {
 					var pages = (data.total_count / tracker.search_param.pagesize) + 1;
-					for (var i = 1; i <= pages; i++) {
+					for ( var i = 1; i <= pages; i++) {
 						list(i);
 					}
 				}
@@ -104,7 +105,6 @@
 			}
 		});
 	}
-
 
 	function handleHtmlList(data) {
 		var all = $(data);
@@ -151,8 +151,10 @@
 
 		var result = prices[0] / avg;
 
-		console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
-				data.total_count);
+		if (tracker.debug) {
+			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
+					data.total_count);
+		}
 		if (result <= tracker.threshold) {
 			var obj = {
 				result : result,

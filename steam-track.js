@@ -15,6 +15,7 @@
 
 	var ajax_manager = {
 		queue : [],
+		max : 5,
 		mutex : 5
 	};
 
@@ -27,6 +28,11 @@
 		tracker.threshold = parseFloat($('#threshold').val());
 		tracker.schedule_time = parseInt($('#schedule_time').val());
 		tracker.search_value = $('#search_value').val();
+		
+		var newMax = parseInt($('#max_ajax').val());
+		var diff = newMax - ajax_manager.max;
+		ajax_manager.max = newMax;
+		ajax_manager.mutex += diff;
 	}
 
 	function stop() {
@@ -40,8 +46,8 @@
 	}
 
 	function consume() {
-		if (ajax_manager.queue.length) {
-			if (ajax_manager.mutex > 0) {
+		if (ajax_manager.queue.length > 0) {
+			while (ajax_manager.mutex > 0) {
 				var opts = ajax_manager.queue.shift();
 				var success = opts.success;
 				var error = opts.error;
@@ -66,7 +72,7 @@
 				ajax_manager.mutex--;
 				console.info('mutex', ajax_manager.mutex);
 			}
-		} else {
+		} else if (!ajax_manager.list) {
 			list();	
 		}
 	}
@@ -104,10 +110,17 @@
 		});
 		var buttonClean = $('<input id="clean_messages" type="button" value="clean messages"/>');
 		buttonClean.click(clean);
+		
+		var buttonCleanQueue = $('<input id="clean_queue" type="button" value="clean queue"/>');
+		buttonCleanQueue.click(function() {
+			ajax_manager.queue = [];
+			ajax_manager.mutex = ajax_manager.max;
+		});
 
 		form.append($('<input type="text" id="search_value" value="' + tracker.search_value + '" />'));
 		form.append($('<input type="text" id="minCount" value="' + tracker.minCount + '" />'));
 		form.append($('<input type="text" id="threshold" value="' + tracker.threshold + '" />'));
+		form.append($('<input type="text" id="max_ajax" value="' + ajax_manager.max + '" />'));
 		form.append($('<input type="text" id="schedule_time" value="' + tracker.schedule_time + '" />'));
 		var buttonUpdate = $('<input id="update_info" type="button" value="update data"/>');
 		buttonUpdate.click(function() {
@@ -121,9 +134,11 @@
 		form.append(buttonUpdate);
 		form.append(button);
 		form.append(buttonClean);
+		form.append(buttonCleanQueue);
 	}
 
 	function list(page) {
+		ajax_manager.list = true;
 		var start = 0;
 		if (page) {
 			start = page * tracker.search_param.pagesize;
@@ -136,6 +151,7 @@
 			type : 'GET',
 			error : function(err) {
 				console.info('err', err);
+				ajax_manager.list = false;
 			},
 			success : function(data) {
 				console.info(data);
@@ -146,6 +162,7 @@
 					}
 				}
 				handleHtmlList(data.results_html);
+				ajax_manager.list = false;
 			}
 		});
 	}

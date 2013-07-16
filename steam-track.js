@@ -7,6 +7,7 @@
 		},
 		search_value : 'trading card',
 		debug : false,
+		stop : true,
 		minCount : 500,
 		threshold : 0.8,
 		schedule_time : 40 * 1000
@@ -107,6 +108,9 @@
 	}
 
 	function handleHtmlList(data) {
+		if (!tracker.started) {
+			return;	
+		}
 		var all = $(data);
 		var links = all.find('div.market_listing_row');
 		$(links).each(function(index) {
@@ -134,6 +138,9 @@
 	}
 
 	function handleHtml(product, data) {
+		if (!tracker.started) {
+			return;	
+		}
 		var all = $(data.results_html);
 		var spans = $(all).find('.market_listing_price_with_fee');
 		var prices = [];

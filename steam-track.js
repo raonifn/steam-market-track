@@ -108,7 +108,7 @@
 	}
 
 	function handleHtmlList(data) {
-		if (!tracker.started) {
+		if (!tracker.timer) {
 			return;	
 		}
 		var all = $(data);
@@ -138,7 +138,7 @@
 	}
 
 	function handleHtml(product, data) {
-		if (!tracker.started) {
+		if (!tracker.timer) {
 			return;	
 		}
 		var all = $(data.results_html);

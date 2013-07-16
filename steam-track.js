@@ -42,24 +42,29 @@
 	function consume() {
 		if (ajax_manager.queue.length) {
 			if (ajax_manager.mutex > 0) {
-				ajax_manager.mutex--;
 				var opts = ajax_manager.queue.shift();
 				var success = opts.success;
 				var error = opts.error;
 				opts.error = function() {
 					try {
-						error(arguments);
+						error.apply(this, arguments);
 					} finally {
 						ajax_manager.mutex++;
+						console.info('mutex', ajax_manager.mutex);
 					}
 				}
 				opts.success = function() {
 					try {
-						success(arguments);
+						success.apply(this, arguments);
 					} finally {
 						ajax_manager.mutex++;
+						console.info('mutex', ajax_manager.mutex);
 					}
 				};
+				console.info('consume', opts);
+				$.ajax(opts);
+				ajax_manager.mutex--;
+				console.info('mutex', ajax_manager.mutex);
 			}
 		} else {
 			list();	
@@ -149,6 +154,7 @@
 		if (!ajax_manager.timer) {
 			return;	
 		}
+		data = data.replace(/src/g, "_src");
 		var all = $(data);
 		var links = all.find('div.market_listing_row');
 		$(links).each(function(index) {
@@ -179,7 +185,9 @@
 		if (!ajax_manager.timer) {
 			return;	
 		}
-		var all = $(data.results_html);
+		var html = data.results_html;
+		html = html.replace(/src/g, "_src");
+		var all = $(html);
 		var spans = $(all).find('.market_listing_price_with_fee');
 		var prices = [];
 		spans.each(function(index) {
@@ -195,12 +203,13 @@
 		avg /= prices.length;
 
 		var result = prices[0] / avg;
+		var diff = avg - prices[0];
 
 		if (tracker.debug) {
 			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
 					data.total_count);
 		}
-		if (result <= tracker.threshold) {
+		if (result <= tracker.threshold && diff >= 0.1) {
 			var obj = {
 				result : result,
 				avg : avg,

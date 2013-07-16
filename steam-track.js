@@ -209,7 +209,7 @@
 			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
 					data.total_count);
 		}
-		if (result <= tracker.threshold && diff >= 0.1) {
+		if (result <= tracker.threshold && diff >= 10.15) {
 			var obj = {
 				result : result,
 				avg : avg,

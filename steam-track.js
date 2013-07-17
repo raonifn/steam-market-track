@@ -38,7 +38,6 @@
 	function stop() {
 		var started = ajax_manager.timer;
 		if (started) {
-			console.info('parando');
 			clearInterval(ajax_manager.timer);
 			delete ajax_manager.timer;
 		}
@@ -47,7 +46,7 @@
 
 	function consume() {
 		if (ajax_manager.queue.length > 0) {
-			while (ajax_manager.mutex > 0) {
+			while (ajax_manager.mutex > 0 && ajax_manager.queue.length > 0 ) {
 				var opts = ajax_manager.queue.shift();
 				var success = opts.success;
 				var error = opts.error;
@@ -56,7 +55,6 @@
 						error.apply(this, arguments);
 					} finally {
 						ajax_manager.mutex++;
-						console.info('mutex', ajax_manager.mutex);
 					}
 				}
 				opts.success = function() {
@@ -64,13 +62,10 @@
 						success.apply(this, arguments);
 					} finally {
 						ajax_manager.mutex++;
-						console.info('mutex', ajax_manager.mutex);
 					}
 				};
-				console.info('consume', opts);
 				$.ajax(opts);
 				ajax_manager.mutex--;
-				console.info('mutex', ajax_manager.mutex);
 			}
 		} else if (!ajax_manager.list) {
 			list();	
@@ -78,13 +73,10 @@
 	}
 
 	function start() {
-		console.info('agendado');
-		ajax_manager.timer = setInterval(exec, tracker.schedule_time);
+		ajax_manager.timer = setInterval(consume, tracker.schedule_time);
 	}
 
 	function init() {
-		$.ajaxPrefilter(onAjax);
-
 		var tracker_div = $('#tracker');
 		if (tracker_div) {
 			tracker_div.remove();
@@ -100,11 +92,13 @@
 				'z-index: 100; width: 100%; height: 20%; position:absolute; top: 0; left: 0; background-color: #fff;');
 		$('body').prepend(divTracker);
 
-		var button = $('<input id="toggle_schedule" type="button" value="toggle schedule"/>');
+		var button = $('<input id="toggle_schedule" type="button" value="start"/>');
 		button.click(function() {
 			if (ajax_manager.timer) {
+				$('#toggle_schedule').val('start');
 				stop();
 			} else {
+				$('#toggle_schedule').val('stop');
 				start();
 			}
 		});
@@ -183,16 +177,18 @@
 
 	function search(product) {
 		var query = product + '/render/?query=&start=1&count=20'
+		var prod = product;
 		ajax({
 			url : query,
+			product: product,
 			type : 'GET',
 			error : function(err) {
 				console.info('err', err);
 			},
 			success : function(data) {
 				if (data.total_count > tracker.minCount) {
-					// console.info('product: ', query, data.total_count);
-					handleHtml(product, data);
+					console.info(this, data);
+					handleHtml(this.product, data);
 				}
 			}
 		});
@@ -202,6 +198,7 @@
 		if (!ajax_manager.timer) {
 			return;	
 		}
+		console.info(product, data);
 		var html = data.results_html;
 		html = html.replace(/src/g, "_src");
 		var all = $(html);
@@ -226,7 +223,7 @@
 			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
 					data.total_count);
 		}
-		if (result <= tracker.threshold && diff >= 10.15) {
+		if (result <= tracker.threshold && diff >= 0.12) {
 			var obj = {
 				result : result,
 				avg : avg,
@@ -252,15 +249,6 @@
 
 	function clean() {
 		$('#tracker_messages').html('');
-	}
-
-	function onAjax(opts, originalOpts, jqXHR) {
-		
-	}
-
-	function exec() {
-		console.info('exec');
-		consume();
 	}
 
 	init();

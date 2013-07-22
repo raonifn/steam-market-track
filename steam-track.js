@@ -10,7 +10,7 @@
 		stop : true,
 		minCount : 100,
 		threshold : 0.66,
-		schedule_time : 2 * 1000
+		schedule_time : 3 * 100
 	};
 
 	var ajax_manager = {
@@ -187,7 +187,7 @@
 			},
 			success : function(data) {
 				if (data.total_count > tracker.minCount) {
-					console.info(this, data);
+					//console.info(this, data);
 					handleHtml(this.product, data);
 				}
 			}
@@ -198,7 +198,7 @@
 		if (!ajax_manager.timer) {
 			return;	
 		}
-		console.info(product, data);
+		//console.info(product, data);
 		var html = data.results_html;
 		html = html.replace(/src/g, "_src");
 		var all = $(html);
@@ -223,7 +223,7 @@
 			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
 					data.total_count);
 		}
-		if (result <= tracker.threshold && diff >= 0.12) {
+		if (result <= tracker.threshold) {
 			var obj = {
 				result : result,
 				avg : avg,

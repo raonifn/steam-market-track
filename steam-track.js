@@ -239,6 +239,7 @@
 	function message(obj) {
 		var a = $('<a />').append(JSON.stringify(obj));
 		a.attr('href', obj.product);
+		a.attr('target', '_blank');
 		a.css('color', '#000');
 
 		var p = $('<p />');

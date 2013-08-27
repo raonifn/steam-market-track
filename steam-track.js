@@ -176,7 +176,7 @@
 	}
 
 	function search(product) {
-		var query = product + '/render/?query=&start=1&count=20'
+		var query = product + '/render/?query=&start=1&count=10'
 		var prod = product;
 		ajax({
 			url : query,

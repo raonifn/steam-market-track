@@ -1,4 +1,4 @@
-return (function($) {
+var a = (function($) {
 	var ajax_manager = {
 		queue : [],
 		max : 5,
@@ -21,3 +21,4 @@ return (function($) {
 	
 	return ajax_manager;
 })(jQuery);
+return a;

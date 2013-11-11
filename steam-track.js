@@ -254,7 +254,7 @@
 	}
 
 	console.info('getting');
-	$.getScript('https://github.com/raonifn/steam-market-track/raw/split/ajax-queue.js', function() {
+	$.getScript('https://raw.github.com/raonifn/steam-market-track/split/ajax-queue.js', function() {
 		console.info('got');
 		init();
 	});

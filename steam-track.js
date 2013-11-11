@@ -13,7 +13,6 @@
 		threshold : 0.66,
 		schedule_time : 3 * 100
 	};
-	$.getScript('ajax-queue.js');
 
 //	var ajax_manager = {
 //		queue : [],
@@ -254,5 +253,7 @@
 		$('#tracker_messages').html('');
 	}
 
-	init();
+	$.getScript('ajax-queue.js', function() {
+		init();
+	});
 })(jQuery);

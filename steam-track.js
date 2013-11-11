@@ -1,4 +1,5 @@
 (function($) {
+        
 	var tracker = {
 		url : 'http://steamcommunity.com/market/',
 		search : '/search/render',
@@ -12,12 +13,13 @@
 		threshold : 0.66,
 		schedule_time : 3 * 100
 	};
+	$.getScript('ajax-queue.js');
 
-	var ajax_manager = {
-		queue : [],
-		max : 5,
-		mutex : 5
-	};
+//	var ajax_manager = {
+//		queue : [],
+//		max : 5,
+//		mutex : 5
+//	};
 
 	function ajax(opts) {
 		ajax_manager.queue.push(opts);

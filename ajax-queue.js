@@ -1,4 +1,4 @@
-a = (function($) {
+ajax_manager = (function($) {
 	var ajax_manager = {
 		queue : [],
 		max : 5,

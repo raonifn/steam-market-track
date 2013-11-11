@@ -253,7 +253,10 @@
 		$('#tracker_messages').html('');
 	}
 
+	console.info('getting');
 	$.getScript('ajax-queue.js', function() {
+		console.info('got');
 		init();
 	});
+	console.info('waiting');
 })(jQuery);

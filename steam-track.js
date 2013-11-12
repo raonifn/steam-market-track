@@ -228,6 +228,7 @@
 				result : result,
 				avg : avg,
 				min : prices[0],
+				diff : avg - prices[0],
 				product : product,
 				total : data.total_count
 			};

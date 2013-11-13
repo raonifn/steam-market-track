@@ -228,7 +228,7 @@
 				result : result,
 				avg : avg,
 				min : prices[0],
-				diff : avg - prices[0],
+				diff : (avg - prices[0] - (avg * 0.15)),
 				product : product,
 				total : data.total_count
 			};

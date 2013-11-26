@@ -219,7 +219,7 @@
 		var html = data.results_html;
 		html = html.replace(/src/g, "_src");
 		var all = $(html);
-		console.info('all', all);
+		console.info('all', all, $(all).find('.market_listing_row'), $(all).find('div.market_listing_row'));
 
                 var listing_spans = $(all).find('.market_listing_row');
 		console.info('s', listing_spans);

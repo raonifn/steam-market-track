@@ -218,9 +218,13 @@
 		}
 		var html = data.results_html;
 		html = html.replace(/src/g, "_src");
-		var all = $(html);
+		var elements = $(html);
+		var all = $('<div />');
+		all.append(elements);
 
 		console.info('all', all.find('.market_listing_row').length, all.find('div.market_listing_row').length);
+
+		
 
                 var listing_spans = $(all).find('.market_listing_row');
 		console.info('s', listing_spans);

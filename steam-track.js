@@ -221,6 +221,7 @@
 		var all = $(html);
 
                 var listing_spans = $(all).find('.market_listing_row');
+		console.info('s', listing_spans);
 		var prices = [];
 		var listings = [];
 		var avg = 0;

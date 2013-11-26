@@ -221,7 +221,7 @@
 		var all = $(html);
 
 
-		var div = $('<div></div>');
+		var div = $('<div id="all_test"></div>');
 		div.append(all);
 		$('body').append(div);
 		console.info('all', all, $(all).find('.market_listing_row'), $(all).find('div.market_listing_row'));

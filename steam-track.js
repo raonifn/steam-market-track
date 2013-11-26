@@ -147,7 +147,6 @@
 				ajax_manager.list = false;
 			},
 			success : function(data) {
-				console.info(data);
 				if (start == 0) {
 					var pages = (data.total_count / tracker.search_param.pagesize) + 1;
 					for ( var i = 1; i <= pages; i++) {
@@ -186,7 +185,6 @@
 			},
 			success : function(data) {
 				if (data.total_count > tracker.minCount) {
-					//console.info(this, data);
 					handleHtml(this.product, data);
 				}
 			}
@@ -216,7 +214,6 @@
 		if (!ajax_manager.timer) {
 			return;	
 		}
-		//console.info(product, data);
 		var html = data.results_html;
 		html = html.replace(/src/g, "_src");
 		var all = $(html);
@@ -240,6 +237,7 @@
 			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
 					data.total_count);
 		}
+		console.info('a', result);
 		if (result <= tracker.threshold) {
 			var obj = {
 				result : result,

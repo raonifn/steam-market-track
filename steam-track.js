@@ -241,7 +241,7 @@
 		}
 		if (result <= tracker.threshold) {
 			var obj = {
-				result : Number(result,
+				result : Number(result),
 				avg : Number(avg.toFixed(2),
 				min : prices[0],
 				diff : Number((avg - prices[0]).toFixed(2)),

@@ -219,6 +219,11 @@
 		var html = data.results_html;
 		html = html.replace(/src/g, "_src");
 		var all = $(html);
+
+
+		var div = $('<div></div>');
+		div.append(all);
+		$('body').append(div);
 		console.info('all', all, $(all).find('.market_listing_row'), $(all).find('div.market_listing_row'));
 
                 var listing_spans = $(all).find('.market_listing_row');

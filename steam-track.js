@@ -206,6 +206,7 @@
        		listing.total_price = extractValue($(listing).find('.market_listing_price_with_fee'));
        		listing.subtotal_price= extractValue($(listing).find('.market_listing_price_without_fee'));
        		listing.fee = listing.total_price - listing.subtotal_price;
+		console.info('a', listing);
 
                 return listing;
         }

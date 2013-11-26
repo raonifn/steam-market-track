@@ -230,6 +230,8 @@
 		});
 		avg /= prices.length;
 
+console.info('l', listings);
+
 		var result = prices[0] / avg;
 		var diff = avg - prices[0];
 

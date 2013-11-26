@@ -246,8 +246,8 @@
 		var p = $('<p />');
 		p.append(a);
 		
-		var buy = $('<button value="Buy">');
-		buy.click(function() {
+		var buybutton = $('<button value="Buy">');
+		buybutton.click(function() {
 			buy(extra);
 		});
 		

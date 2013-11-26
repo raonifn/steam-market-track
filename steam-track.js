@@ -193,6 +193,25 @@
 		});
 	}
 
+	function extractValue(span) {
+		var value = $(span).text();
+		value = value.replace(/\s*.*(\d+[,\.]\d+)[^\d]*/m, "$1");
+		value = value.replace(/,/, ".");
+		return parseFloat(value);
+	
+	}
+
+        function handleListing(listing) {
+		var listing = {};
+
+		listing.id = listing.attr('id').replace(/listing_(.*)/, "$1");
+       		listing.total_price = extractValue($(listing).find('.market_listing_price_with_fee'));
+       		listing.subtotal_price= extractValue($(listing).find('.market_listing_price_without_fee'));
+       		listing.fee = listing.total_price - listing.subtotal_price;
+
+                return listing;
+        }
+
 	function handleHtml(product, data) {
 		if (!ajax_manager.timer) {
 			return;	
@@ -201,18 +220,17 @@
 		var html = data.results_html;
 		html = html.replace(/src/g, "_src");
 		var all = $(html);
-		var spans = $(all).find('.market_listing_price_with_fee');
+
+                var listing_spans = $(all).find('.market_listing_row');
 		var prices = [];
-		spans.each(function(index) {
-			var value = $(this).text();
-			value = value.replace(/\s*.*(\d+[,\.]\d+)[^\d]*/m, "$1");
-			value = value.replace(/,/, ".");
-			prices.push(parseFloat(value));
-		});
+		var listings = [];
 		var avg = 0;
-		for ( var i = 0; i < prices.length; i++) {
-			avg += prices[i];
-		}
+		listing_spans.each(function(index) {
+			var listing = handleListing($(this));
+			listings.push(listing);
+			prices.push(listing.total_price);
+			avg += listing.total_price;
+		});
 		avg /= prices.length;
 
 		var result = prices[0] / avg;
@@ -229,7 +247,8 @@
 				min : prices[0],
 				diff : (avg - prices[0] - (avg * 0.15)),
 				product : product,
-				total : data.total_count
+				total : data.total_count,
+                                listings: listings
 			};
 
 			message(obj, data);

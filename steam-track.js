@@ -139,7 +139,6 @@
 		}
 		var query = tracker.url + tracker.search + '?count=' + tracker.search_param.pagesize + '&start=' + start
 				+ '&query=' + encodeURIComponent(tracker.search_value);
-		console.info('getting', query);
 		ajax({
 			url : query,
 			type : 'GET',
@@ -251,7 +250,7 @@
 			buy(extra);
 		});
 		
-		p.append(buy);
+		p.append(buybutton);
 		
 		$('#tracker_messages').prepend(p);
 		

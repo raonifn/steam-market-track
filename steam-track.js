@@ -241,10 +241,11 @@
 		}
 		if (result <= tracker.threshold) {
 			var obj = {
-				result : result,
-				avg : avg,
+				result : Number(result,
+				avg : Number(avg.toFixed(2),
 				min : prices[0],
-				diff : (avg - prices[0] - (avg * 0.15)),
+				diff : Number((avg - prices[0]).toFixed(2)),
+				diffWithFee : Number((diff - (avg * 0.15)).toFixed(2)),
 				product : product,
 				total : data.total_count,
                                 listings: listings
@@ -276,7 +277,7 @@
 	}
 	
 	function buy(data) {
-		console.info('buy', extra);
+		console.info('buy', data);
 	}
 
 	function clean() {

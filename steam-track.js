@@ -205,9 +205,7 @@
 		listing.id = listingSpan.attr('id').replace(/listing_(.*)/, "$1");
        		listing.total_price = extractValue($(listingSpan).find('.market_listing_price_with_fee'));
        		listing.subtotal_price= extractValue($(listingSpan).find('.market_listing_price_without_fee'));
-       		listing.fee = listing.total_price - listing.subtotal_price;
-
-		console.info('eee', listing);
+       		listing.fee = Number((listing.total_price - listing.subtotal_price).toFixed(2));
 
                 return listing;
         }
@@ -222,12 +220,7 @@
 		var all = $('<div />');
 		all.append(elements);
 
-		console.info('all', all.find('.market_listing_row').length, all.find('div.market_listing_row').length);
-
-		
-
                 var listing_spans = $(all).find('.market_listing_row');
-		console.info('s', listing_spans);
 		var prices = [];
 		var listings = [];
 		var avg = 0;
@@ -239,8 +232,6 @@
 		});
 		avg /= prices.length;
 
-console.info('l', listings);
-
 		var result = prices[0] / avg;
 		var diff = avg - prices[0];
 
@@ -248,7 +239,6 @@ console.info('l', listings);
 			console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
 					data.total_count);
 		}
-		console.info('a', result);
 		if (result <= tracker.threshold) {
 			var obj = {
 				result : result,
@@ -260,11 +250,11 @@ console.info('l', listings);
                                 listings: listings
 			};
 
-			message(obj, data);
+			message(obj);
 		}
 	}
 
-	function message(obj, extra) {
+	function message(obj) {
 		var a = $('<a />').append(JSON.stringify(obj));
 		a.attr('href', obj.product);
 		a.attr('target', '_blank');
@@ -273,9 +263,9 @@ console.info('l', listings);
 		var p = $('<p />');
 		p.append(a);
 		
-		var buybutton = $('<button value="Buy">');
+		var buybutton = $('<button>Buy</button>');
 		buybutton.click(function() {
-			buy(extra);
+			buy(obj);
 		});
 		
 		p.append(buybutton);
@@ -285,7 +275,7 @@ console.info('l', listings);
 		alert('opa');
 	}
 	
-	function buy(extra) {
+	function buy(data) {
 		console.info('buy', extra);
 	}
 

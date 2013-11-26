@@ -199,14 +199,15 @@
 	
 	}
 
-        function handleListing(listing) {
+        function handleListing(listingSpan) {
 		var listing = {};
 
-		listing.id = listing.attr('id').replace(/listing_(.*)/, "$1");
-       		listing.total_price = extractValue($(listing).find('.market_listing_price_with_fee'));
-       		listing.subtotal_price= extractValue($(listing).find('.market_listing_price_without_fee'));
+		listing.id = listingSpan.attr('id').replace(/listing_(.*)/, "$1");
+       		listing.total_price = extractValue($(listingSpan).find('.market_listing_price_with_fee'));
+       		listing.subtotal_price= extractValue($(listingSpan).find('.market_listing_price_without_fee'));
        		listing.fee = listing.total_price - listing.subtotal_price;
-		console.info('a', listing);
+
+		console.info('eee', listing);
 
                 return listing;
         }

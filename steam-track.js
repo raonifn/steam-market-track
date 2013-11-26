@@ -233,11 +233,11 @@
 				total : data.total_count
 			};
 
-			message(obj);
+			message(obj, data);
 		}
 	}
 
-	function message(obj) {
+	function message(obj, extra) {
 		var a = $('<a />').append(JSON.stringify(obj));
 		a.attr('href', obj.product);
 		a.attr('target', '_blank');
@@ -245,8 +245,21 @@
 
 		var p = $('<p />');
 		p.append(a);
+		
+		var buy = $('<button value="Buy">');
+		buy.click(function() {
+			buy(extra);
+		});
+		
+		p.append(buy);
+		
 		$('#tracker_messages').prepend(p);
+		
 		alert('opa');
+	}
+	
+	function buy(extra) {
+		console.info('buy', extra);
 	}
 
 	function clean() {

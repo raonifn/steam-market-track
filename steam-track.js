@@ -310,7 +310,7 @@
 			currency: tracker.currency,
 			subtotal: Math.round(min.subtotal_price * 100),
 			fee: Math.round(min.fee * 100),
-			total: math.round(min.total_price * 100)
+			total: Math.round(min.total_price * 100)
 		};
 
 		console.info('buying', url, data);

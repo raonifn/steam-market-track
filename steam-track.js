@@ -330,7 +330,7 @@
 					mimeType: 'application/x-www-form-urlencoded; charset=UTF-8',
 					data: data,
 					crossDoamin: true,
-					xhrFields: { withCredentials: true}
+					xhrFields: { withCredentials: true},
 					error : function(err) {
 						console.info('err', err);
 					},

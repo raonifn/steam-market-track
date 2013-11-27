@@ -12,7 +12,8 @@
 		minCount : 100,
 		threshold : 0.66,
 		schedule_time : 3 * 100,
-		minDiff: 0.1
+		minDiff: 0.1,
+		sessionid:  
 	};
 
 	var ajax_manager = {
@@ -20,6 +21,10 @@
 		max : 5,
 		mutex : 5
 	};
+
+	function getSessionid() {
+		sessionsesss
+   	}
 
 	function ajax(opts) {
 		ajax_manager.queue.push(opts);

@@ -8,9 +8,11 @@
 		search_value : 'trading card',
 		debug : false,
 		stop : true,
+		currency: 7,
 		minCount : 100,
 		threshold : 0.66,
-		schedule_time : 3 * 100
+		schedule_time : 3 * 100,
+		minDiff: 0.1
 	};
 
 	var ajax_manager = {
@@ -28,6 +30,7 @@
 		tracker.threshold = parseFloat($('#threshold').val());
 		tracker.schedule_time = parseInt($('#schedule_time').val());
 		tracker.search_value = $('#search_value').val();
+		tracker.minDiff = $('#min_diff').val();
 		
 		var newMax = parseInt($('#max_ajax').val());
 		var diff = newMax - ajax_manager.max;
@@ -116,6 +119,7 @@
 		form.append($('<input type="text" id="threshold" value="' + tracker.threshold + '" />'));
 		form.append($('<input type="text" id="max_ajax" value="' + ajax_manager.max + '" />'));
 		form.append($('<input type="text" id="schedule_time" value="' + tracker.schedule_time + '" />'));
+		form.append($('<input type="text" id="min_diff" value="' + tracker.minDiff + '" />'));
 		var buttonUpdate = $('<input id="update_info" type="button" value="update data"/>');
 		buttonUpdate.click(function() {
 			var started = stop();
@@ -242,7 +246,7 @@
 		if (result <= tracker.threshold) {
 			var obj = {
 				result : Number(result),
-				avg : Number(avg.toFixed(2),
+				avg : Number(avg.toFixed(2)),
 				min : prices[0],
 				diff : Number((avg - prices[0]).toFixed(2)),
 				diffWithFee : Number((diff - (avg * 0.15)).toFixed(2)),
@@ -251,7 +255,9 @@
                                 listings: listings
 			};
 
-			message(obj);
+			if (obj.diffWithFee >= tracker.minDiff) {
+				message(obj);
+			}
 		}
 	}
 
@@ -276,8 +282,31 @@
 		alert('opa');
 	}
 	
-	function buy(data) {
-		console.info('buy', data);
+	function buy(obj) {
+		var min = obj.listings[0];
+		var url = 'https://steamcommunity.com/market/buylisting/' + min.id;
+		var data = {
+			sessionid: tracker.sessionid,
+			currency: tracker.currency,
+			subtotal: min.subtotal_price * 100,
+			fee: min.fee * 100,
+			total: min.total_price * 100
+		};
+
+		console.info('buying', url, data);
+		$.ajax({
+			url: url,
+			type: 'POST',
+			mimeType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			data: data,
+			error : function(err) {
+				console.info('err', err);
+			},
+			success : function(info) {
+				console.info('bought', info);
+			}
+	
+		});
 	}
 
 	function clean() {

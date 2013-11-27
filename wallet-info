@@ -1,0 +1,14 @@
+ {wallet_currency: 7, wallet_country: "BR", wallet_fee: 1, wallet_fee_minimum: 1, wallet_fee_percent: "0.05"…}
+rwgrsn: -2
+success: 1
+wallet_balance: 2808
+wallet_country: "BR"
+wallet_currency: 7
+wallet_fee: 1
+wallet_fee_base: 0
+wallet_fee_minimum: 1
+wallet_fee_percent: "0.05"
+wallet_max_balance: 100000
+wallet_publisher_fee_percent_default: "0.10"
+wallet_trade_max_balance: 80000
+}

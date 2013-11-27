@@ -304,9 +304,13 @@
 	
 	function buy(obj) {
 
+		console.info('try the get before');
 		$.ajax({
 			url: obj.product,
 			obj: obj,
+			error : function(err) {
+				console.info('err', err);
+			},
 			success: function(info) {
 				var obj = this.obj;
 				var min = obj.listings[0];

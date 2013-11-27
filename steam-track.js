@@ -314,10 +314,10 @@
 			success: function(info) {
 				var obj = this.obj;
 				var min = obj.listings[0];
-				var url = '/market/buylisting/' + min.id;
+				var url = 'https://steamcommunity.com/market/buylisting/' + min.id;
 				var data = {
 					sessionid: tracker.sessionid,
-					currency: tracker.currency,
+					currency: g_rgWalletInfo['wallet_currency'],
 					subtotal: Math.round(min.subtotal_price * 100),
 					fee: Math.round(min.fee * 100),
 					total: Math.round(min.total_price * 100)
@@ -329,6 +329,8 @@
 					type: 'POST',
 					mimeType: 'application/x-www-form-urlencoded; charset=UTF-8',
 					data: data,
+					crossDoamin: true,
+					xhrFields: { withCredentials: true}
 					error : function(err) {
 						console.info('err', err);
 					},

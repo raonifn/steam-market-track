@@ -223,7 +223,7 @@
 
    }
 
-   function handleListing(listingSpan) {
+   function createListing(listingSpan) {
       var listing = {};
 
       listing.id = listingSpan.attr('id').replace(/listing_(.*)/, "$1");
@@ -234,11 +234,8 @@
       return listing;
    }
 
-   function handleHtml(product, data) {
-      if (!ajax_manager.timer) {
-         return;
-      }
-      var html = data.results_html;
+   function extractData(result_html) {
+      var html = result_html;
       html = html.replace(/src/g, "_src");
       var elements = $(html);
       var all = $('<div />');
@@ -249,7 +246,7 @@
       var listings = [];
       var avg = 0;
       listing_spans.each(function(index) {
-         var listing = handleListing($(this));
+         var listing = createListing($(this));
          listings.push(listing);
          prices.push(listing.total_price);
          avg += listing.total_price;
@@ -259,25 +256,33 @@
       var result = prices[0] / avg;
       var diff = avg - prices[0];
 
-      if (tracker.debug) {
-         console.info('result', result, ', avg:', avg, 'min:', prices[0], 'product:', product, ' total:',
-               data.total_count);
-      }
-      if (result <= tracker.threshold) {
-         var obj = {
-            result : Number(result),
-            avg : Number(avg.toFixed(2)),
-            min : prices[0],
-            diff : Number((avg - prices[0]).toFixed(2)),
-            diffWithFee : Number((diff - (avg * 0.15)).toFixed(2)),
-            product : product,
-            total : data.total_count,
-            listings : listings
-         };
+      var obj = {
+         result : Number(result),
+         avg : Number(avg.toFixed(2)),
+         min : prices[0],
+         diff : Number((avg - prices[0]).toFixed(2)),
+         diffWithFee : Number((diff - (avg * 0.15)).toFixed(2)),
+         product : product,
+         total : data.total_count,
+         listings : listings
+      };
 
-         if (obj.diffWithFee >= tracker.minDiff) {
-            message(obj);
-         }
+      return obj;
+   }
+
+   function handleHtml(product, data) {
+      if (!ajax_manager.timer) {
+         return;
+      }
+
+      obj = extractData(data.results_html);
+
+      if (tracker.debug) {
+         console.info('result', obj.result, ', avg:', obj.avg, 'min:', obj.min, 'product:', obj.product, ' total:',
+               obj.total);
+      }
+      if (obj.result <= tracker.threshold && obj.diffWithFee >= tracker.minDiff) {
+         message(obj);
       }
    }
 

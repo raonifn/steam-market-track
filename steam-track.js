@@ -304,7 +304,7 @@
 	
 	function buy(obj) {
 		var min = obj.listings[0];
-		var url = 'https://steamcommunity.com/market/buylisting/' + min.id;
+		var url = '/market/buylisting/' + min.id;
 		var data = {
 			sessionid: tracker.sessionid,
 			currency: tracker.currency,

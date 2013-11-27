@@ -303,29 +303,37 @@
 	}
 	
 	function buy(obj) {
-		var min = obj.listings[0];
-		var url = '/market/buylisting/' + min.id;
-		var data = {
-			sessionid: tracker.sessionid,
-			currency: tracker.currency,
-			subtotal: Math.round(min.subtotal_price * 100),
-			fee: Math.round(min.fee * 100),
-			total: Math.round(min.total_price * 100)
-		};
 
-		console.info('buying', url, data);
 		$.ajax({
-			url: url,
-			type: 'POST',
-			mimeType: 'application/x-www-form-urlencoded; charset=UTF-8',
-			data: data,
-			error : function(err) {
-				console.info('err', err);
-			},
-			success : function(info) {
-				console.info('bought', info);
-			}
+			url: obj.product,
+			obj: obj,
+			success: function(info) {
+				var obj = this.obj;
+				var min = obj.listings[0];
+				var url = '/market/buylisting/' + min.id;
+				var data = {
+					sessionid: tracker.sessionid,
+					currency: tracker.currency,
+					subtotal: Math.round(min.subtotal_price * 100),
+					fee: Math.round(min.fee * 100),
+					total: Math.round(min.total_price * 100)
+				};
+
+				console.info('buying', url, data);
+				$.ajax({
+					url: url,
+					type: 'POST',
+					mimeType: 'application/x-www-form-urlencoded; charset=UTF-8',
+					data: data,
+					error : function(err) {
+						console.info('err', err);
+					},
+					success : function(info) {
+						console.info('bought', info);
+					}
 	
+				});
+			}
 		});
 	}
 

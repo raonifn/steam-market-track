@@ -30,6 +30,6 @@ set +e
 kill -9 %1
 set -e
 
-if [ "x$BUILD_STATUS" == "xSUCCESS" ]; then exit 0; fi
+if [[ $BUILD_STATUS == "SUCCESS" ]]; then exit 0; fi
 
 exit 1;

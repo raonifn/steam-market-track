@@ -1,5 +1,5 @@
 
-asyncTest( "Test Loader", function() {
+asyncTest( "Test Loader without prefix", function() {
   var loader = new Loader();
 
   loader.load_sequence(['loader/loader1.js', 'loader/loader2.js'],

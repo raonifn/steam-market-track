@@ -44,10 +44,12 @@ asyncTest('test callback finished', function() {
   var passSuccess = false;
 
   manager.callbackFinished(function() {
-    ok(LOADER1, 'loader1 ok');
-    ok(passSuccess, 'should pass on success function');
     this.stop();
-    start();
+    setTimeout(function() {
+      ok(passSuccess, 'should pass on success function');
+      ok(LOADER1, 'loader1 ok');
+      start();
+    }, 100);
   });
 
   manager.ajax({
@@ -61,7 +63,7 @@ asyncTest('test callback finished', function() {
       start();
     }
   });
-  
+
   manager.start();
 });
 

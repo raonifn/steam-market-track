@@ -38,7 +38,7 @@ testProduct('Test new Product Listins', function(product) {
     total_price: 1.53,
     url: "jsons/product.json",
     appid: 753,
-    contextid: '6'
+    contextid: 6
   };
 
   var lastListing = {
@@ -50,7 +50,7 @@ testProduct('Test new Product Listins', function(product) {
     total_price: 2.2,
     url: "jsons/product.json",
     appid: 753,
-    contextid: '6'
+    contextid: 6
   };
 
   equal(product.listings[0].total_price, 1.53);
@@ -60,13 +60,11 @@ testProduct('Test new Product Listins', function(product) {
 });
 
 testProduct('Test new Product Averages', function(product) {
-  console.info(product);
-
   var averages = {
     deviation: 0.19488714683118535,
     mean: 1.8170000000000002,
     variance: 0.037981
   };
+  
   deepEqual(product.averages, averages);
-
 });

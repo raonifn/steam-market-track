@@ -30,30 +30,63 @@ testProduct('Test new Product', function(product) {
 
 testProduct('Test new Product Listins', function(product) {
   var firstListing = {
-    assetid: "649955535",
-    fee: 0.19,
-    id: "2847706952544999335",
+    asset: {
+      amount: "1",
+      appid: 753,
+      contextid: "6",
+      currency: 0,
+      id: "649955535"
+    },
+    converted_currencyid: "2007",
+    converted_fee: 19,
+    converted_price: 134,
+    converted_publisher_fee: 13,
+    converted_steam_fee: 6,
+    currencyid: "2007",
+    fee: 19,
+    listingid: "2847706952544999335",
+    price: 134,
+    publisher_fee: 13,
+    publisher_fee_app: 239660,
+    publisher_fee_percent: "0.10000000149011612",
+    steam_fee: 6,
+    steamid_lister: "76561197984049299",
     in_deviation: true,
-    subtotal_price: 1.34,
-    total_price: 1.53,
-    url: "jsons/product.json",
-    appid: 753,
-    contextid: 6
+    total_price: 153,
+    url: "jsons/product.json"
   };
 
   var lastListing = {
-    assetid: "597037894",
-    fee: 0.28,
-    id: "2853333201481123869",
+     asset: {
+      amount: "1",
+      appid: 753,
+      contextid: "6",
+      currency: 0,
+      id: "597037894"
+    },
+    converted_currencyid: "2007",
+    converted_fee: 20,
+    converted_price: 192,
+    converted_publisher_fee: 13,
+    converted_steam_fee: 7,
+    currencyid: "2007",
+    fee: 28,
+    listingid: "2853333201481123869",
+    price: 134,
+    publisher_fee: 13,
+    publisher_fee_app: 239660,
+    publisher_fee_percent: "0.10000000149011612",
+    steam_fee: 6,
+    steamid_lister: "76561197984049299",
     in_deviation: true,
-    subtotal_price: 1.92,
-    total_price: 2.2,
+    total_price: 1.53,
     url: "jsons/product.json",
-    appid: 753,
-    contextid: 6
+    in_deviation: true,
+    subtotal_price: 192,
+    total_price: 220,
+    url: "jsons/product.json"
   };
 
-  equal(product.listings[0].total_price, 1.53);
   equal(product.listings.length, 10);
   deepEqual(product.listings[0], firstListing);
   deepEqual(product.listings[9], lastListing);
@@ -65,6 +98,6 @@ testProduct('Test new Product Averages', function(product) {
     mean: 1.8170000000000002,
     variance: 0.037981
   };
-  
+
   deepEqual(product.averages, averages);
 });

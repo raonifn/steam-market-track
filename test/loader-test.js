@@ -1,4 +1,4 @@
-
+module('loader');
 asyncTest( "Test Loader without prefix", function() {
   var loader = new Loader();
 

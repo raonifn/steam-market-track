@@ -1,3 +1,5 @@
+module('ajax_manager');
+
 asyncTest( "Test start", function() {
   var manager = new AjaxManager();
 

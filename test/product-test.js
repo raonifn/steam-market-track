@@ -1,3 +1,4 @@
+module('product');
 function testProduct(name, callback) {
   asyncTest(name, function() {
     $.ajax({
@@ -20,9 +21,9 @@ function testProduct(name, callback) {
 
 testProduct('Test new Product', function(product) {
   equal(product.url, 'jsons/product.json');
-  equal(product.avgPrice, 182);
+  equal(product.avgPrice, 182), 
   equal(product.diffPrice, 29);
-  equal(product.diffPriceWithoutFee, 2);
+  equal(product.diffPriceWithoutFee, 25);
   equal(product.minPrice, 153);
   equal(product.result, 84);
 
@@ -65,24 +66,23 @@ testProduct('Test new Product Listins', function(product) {
       id: "597037894"
     },
     converted_currencyid: "2007",
-    converted_fee: 20,
+    converted_fee: 28,
     converted_price: 192,
-    converted_publisher_fee: 13,
-    converted_steam_fee: 7,
-    currencyid: "2007",
-    fee: 28,
+    converted_publisher_fee: 19,
+    converted_steam_fee: 9,
+    currencyid: "2001",
+    fee: 12,
     listingid: "2853333201481123869",
-    price: 134,
-    publisher_fee: 13,
+    price: 85,
+    publisher_fee: 8,
     publisher_fee_app: 239660,
     publisher_fee_percent: "0.10000000149011612",
-    steam_fee: 6,
-    steamid_lister: "76561197984049299",
+    steam_fee: 4,
+    steamid_lister: "76561198117447949",
     in_deviation: true,
     total_price: 1.53,
     url: "jsons/product.json",
     in_deviation: true,
-    subtotal_price: 192,
     total_price: 220,
     url: "jsons/product.json"
   };
@@ -94,9 +94,9 @@ testProduct('Test new Product Listins', function(product) {
 
 testProduct('Test new Product Averages', function(product) {
   var averages = {
-    deviation: 0.19488714683118535,
-    mean: 1.8170000000000002,
-    variance: 0.037981
+    deviation: 19.488714683118538,
+    mean: 181.7,
+    variance: 379.81000000000006
   };
 
   deepEqual(product.averages, averages);

@@ -1,3 +1,5 @@
+module('trader');
+
 function testTrader(name, url, callback) {
   asyncTest(name, function() {
     $.ajax({
@@ -5,8 +7,7 @@ function testTrader(name, url, callback) {
       type : 'GET',
       dataType: 'json',
       success: function(data) {
-        console.info("aaaaaa", data.listinginfo);
-        var product = new Product(data.results_html, 'jsons/product.json');
+        var product = new Product(data.listinginfo, 'jsons/product.json');
         callback(product);
         start();
       },
@@ -44,11 +45,11 @@ function assertSell(listing, price, trader) {
   var data =   {
     sessionid : getCookie('sessionid'),
     currency : g_rgWalletInfo['wallet_currency'],
-    appid : listing.appid,
-    contextid : listing.contextid,
+    appid : listing.asset.appid,
+    contextid : listing.asset.contextid,
     amount : 1,
-    price : Math.round(price),
-    assetid : listing.assetid
+    price : price,
+    assetid : listing.asset.id
   };
 
   equal(ajaxInfo.url, 'https://steamcommunity.com/market/sellitem/');
@@ -68,7 +69,7 @@ function executeSuccessRemove(ajaxInfo) {
 testTrader('Test Sell', 'jsons/product.json', function(product) {
   var trader = new Seller();
   var listing = product.listings[0];
-  var price = 20.923;
+  var price = 129;
 
   trader.sell(listing, price);
 
@@ -108,11 +109,14 @@ testTrader('Test Undercut', 'jsons/undercut.json', function(product) {
   var trader = new Seller();
   var lesser = product.listings[0];
   var my_listing = product.listings[1];
+  
+  console.info('undercut', lesser, my_listing);
 
   trader.undercut(product, my_listing);
 
   var ajaxInfo = assertRemoved('2847706952544999335', trader);
   executeSuccessRemove(ajaxInfo);
 
-  assertSell(my_listing, (lesser.subtotal_price * 100) - 1, trader);
+  console.info('undercut', lesser, my_listing, (lesser.converted_price - 1));
+  assertSell(my_listing, (lesser.converted_price - 1), trader);
 });

@@ -5,7 +5,7 @@ function testProduct(name, callback) {
       type : 'GET',
       dataType: 'json',
       success: function(data) {
-        var product = new Product(data.results_html, 'jsons/product.json');
+        var product = new Product(data.listinginfo, 'jsons/product.json');
         callback(product);
         start();
       },
@@ -20,11 +20,11 @@ function testProduct(name, callback) {
 
 testProduct('Test new Product', function(product) {
   equal(product.url, 'jsons/product.json');
-  equal(product.avgPrice, 1.82);
-  equal(product.diffPrice, 0.29);
-  equal(product.diffPriceWithoutFee, 0.02);
-  equal(product.minPrice, 1.53);
-  equal(product.result, 0.84);
+  equal(product.avgPrice, 182);
+  equal(product.diffPrice, 29);
+  equal(product.diffPriceWithoutFee, 2);
+  equal(product.minPrice, 153);
+  equal(product.result, 84);
 
 });
 

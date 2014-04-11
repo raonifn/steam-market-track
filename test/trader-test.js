@@ -29,19 +29,23 @@ g_rgWalletInfo = {
 };
 
 
+function assertDontTrade(trader) {
+  equal(trader.ajax_manager.queue.length, 0);
+}
+
 function assertRemoved(listingid, trader) {
   var ajaxInfo = trader.ajax_manager.queue.pop();
   equal(ajaxInfo.url, 'http://steamcommunity.com/market/removelisting/' + listingid);
   equal(ajaxInfo.type, 'POST');
   equal(ajaxInfo.mimeType, 'application/x-www-form-urlencoded; charset=UTF-8');
   equal(ajaxInfo.data.sessionid, getCookie('sessionid'));
-  
+
   return ajaxInfo;
 }
 
 function assertSell(listing, price, trader) {
   var ajaxInfo = trader.ajax_manager.queue.pop();
-  
+
   var data =   {
     sessionid : getCookie('sessionid'),
     currency : g_rgWalletInfo['wallet_currency'],
@@ -58,7 +62,7 @@ function assertSell(listing, price, trader) {
   ok(ajaxInfo.crossDomain);
   ok(ajaxInfo.xhrFields.withCredentials);
   deepEqual(ajaxInfo.data, data);
-  
+
   return ajaxInfo;
 }
 
@@ -109,14 +113,33 @@ testTrader('Test Undercut', 'jsons/undercut.json', function(product) {
   var trader = new Seller();
   var lesser = product.listings[0];
   var my_listing = product.listings[1];
-  
-  console.info('undercut', lesser, my_listing);
 
   trader.undercut(product, my_listing);
 
   var ajaxInfo = assertRemoved('2847706952544999335', trader);
   executeSuccessRemove(ajaxInfo);
 
-  console.info('undercut', lesser, my_listing, (lesser.converted_price - 1));
   assertSell(my_listing, (lesser.converted_price - 1), trader);
+});
+
+testTrader('Test Undercut beeing lesser listing', 'jsons/product_with_undercut.json', function(product) {
+  var trader = new Seller();
+  var my_listing = product.listings[0];
+
+  trader.undercut(product, my_listing);
+
+  var ajaxInfo = assertRemoved('2847706952544999335', trader);
+
+  executeSuccessRemove(ajaxInfo);
+  assertSell(my_listing, (product.listings[1].converted_price - 1), trader);
+
+});
+
+testTrader('Test dont Undercut', 'jsons/product.json', function(product) {
+  var trader = new Seller();
+  var my_listing = product.listings[0];
+
+  trader.undercut(product, my_listing);
+
+  assertDontTrade(trader);
 });

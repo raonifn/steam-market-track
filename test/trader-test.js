@@ -43,9 +43,20 @@ function assertRemoved(listingid, trader) {
   return ajaxInfo;
 }
 
-function assertSell(listing, price, trader) {
+function assertTradeAjaxInfo(url,  data, trader) {
   var ajaxInfo = trader.ajax_manager.queue.pop();
 
+  equal(ajaxInfo.url, url);
+  equal(ajaxInfo.type, 'POST');
+  equal(ajaxInfo.mimeType, 'application/x-www-form-urlencoded; charset=UTF-8');
+  ok(ajaxInfo.crossDomain);
+  ok(ajaxInfo.xhrFields.withCredentials);
+  deepEqual(ajaxInfo.data, data);
+
+  return ajaxInfo;
+}
+
+function assertSell(listing, price, trader) {
   var data =   {
     sessionid : getCookie('sessionid'),
     currency : g_rgWalletInfo['wallet_currency'],
@@ -56,22 +67,30 @@ function assertSell(listing, price, trader) {
     assetid : listing.asset.id
   };
 
-  equal(ajaxInfo.url, 'https://steamcommunity.com/market/sellitem/');
-  equal(ajaxInfo.type, 'POST');
-  equal(ajaxInfo.mimeType, 'application/x-www-form-urlencoded; charset=UTF-8');
-  ok(ajaxInfo.crossDomain);
-  ok(ajaxInfo.xhrFields.withCredentials);
-  deepEqual(ajaxInfo.data, data);
-
-  return ajaxInfo;
+  return assertTradeAjaxInfo('https://steamcommunity.com/market/sellitem/', data, trader);
 }
 
-function executeSuccessRemove(ajaxInfo) {
-  ajaxInfo.success('removed');
+function assertBuy(listing, trader) {
+  var data =   {
+    sessionid : getCookie('sessionid'),
+    currency : g_rgWalletInfo['wallet_currency'],
+    subtotal: listing.converted_price,
+    fee: listing.converted_fee,
+    total: listing.converted_price + listing.converted_fee
+  };
+
+  return assertTradeAjaxInfo('https://steamcommunity.com/market/buylisting/' + listing.asset.id, data, trader);
+}
+
+
+
+function executeSuccess(ajaxInfo, info) {
+  var passing = info ? info : 'success';
+  ajaxInfo.success(passing);
 }
 
 testTrader('Test Sell', 'jsons/product.json', function(product) {
-  var trader = new Seller();
+  var trader = new Trader();
   var listing = product.listings[0];
   var price = 129;
 
@@ -80,8 +99,35 @@ testTrader('Test Sell', 'jsons/product.json', function(product) {
   assertSell(listing, price, trader);
 });
 
+testTrader('Test Buy', 'jsons/product.json', function(product) {
+  var trader = new Trader();
+  var listing = product.listings[0];
+
+  trader.buy(listing);
+
+  assertBuy(listing, trader);
+});
+
+testTrader('Test Buy with callback', 'jsons/product.json', function(product) {
+  var trader = new Trader();
+  var listing = product.listings[0];
+
+  trader.buy(listing, function(listingBought) {
+    callbacked = true;
+    deepEqual(listingBought, listing);
+    equal(g_rgWalletInfo, 10);
+  });
+
+
+
+  var ajaxInfo = assertBuy(listing, trader);
+  executeSuccess(ajaxInfo, '{wallet_info: 10}');
+
+  ok(callbacked, 'should call callback');
+});
+
 testTrader('Test Remove Listing', 'jsons/product.json', function(product) {
-  var trader = new Seller();
+  var trader = new Trader();
 
   var listing = product.listings[0];
 
@@ -92,7 +138,7 @@ testTrader('Test Remove Listing', 'jsons/product.json', function(product) {
 
 
 testTrader('Test Remove Listing with Callback', 'jsons/product.json', function(product) {
-  var trader = new Seller();
+  var trader = new Trader();
 
   var listing = product.listings[0];
 
@@ -102,41 +148,41 @@ testTrader('Test Remove Listing with Callback', 'jsons/product.json', function(p
     deepEqual(listingRemoved, listing);
   });
 
-  ajaxInfo = assertRemoved('2847706952544999335', trader);
+  var ajaxInfo = assertRemoved('2847706952544999335', trader);
 
-  executeSuccessRemove(ajaxInfo);
+  executeSuccess(ajaxInfo);
 
   ok(callbacked, 'should call callback');
 });
 
 testTrader('Test Undercut', 'jsons/undercut.json', function(product) {
-  var trader = new Seller();
+  var trader = new Trader();
   var lesser = product.listings[0];
   var my_listing = product.listings[1];
 
   trader.undercut(product, my_listing);
 
   var ajaxInfo = assertRemoved('2847706952544999335', trader);
-  executeSuccessRemove(ajaxInfo);
+  executeSuccess(ajaxInfo);
 
   assertSell(my_listing, (lesser.converted_price - 1), trader);
 });
 
 testTrader('Test Undercut beeing lesser listing', 'jsons/product_with_undercut.json', function(product) {
-  var trader = new Seller();
+  var trader = new Trader();
   var my_listing = product.listings[0];
 
   trader.undercut(product, my_listing);
 
   var ajaxInfo = assertRemoved('2847706952544999335', trader);
 
-  executeSuccessRemove(ajaxInfo);
+  executeSuccess(ajaxInfo);
   assertSell(my_listing, (product.listings[1].converted_price - 1), trader);
 
 });
 
 testTrader('Test dont Undercut', 'jsons/product.json', function(product) {
-  var trader = new Seller();
+  var trader = new Trader();
   var my_listing = product.listings[0];
 
   trader.undercut(product, my_listing);

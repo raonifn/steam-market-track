@@ -1,4 +1,4 @@
-module('crawler list');
+module('crawler');
 
 testCrawlingDispatch = function(name, testSearch, theTest) {
     asyncTest(name, function() {

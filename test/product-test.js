@@ -4,7 +4,7 @@ function testProduct(name, callback) {
     asyncTest(name, function() {
         $.ajax({
             url: 'jsons/product.json',
-            type : 'GET',
+            type: 'GET',
             dataType: 'json',
             success: function(data) {
                 var product = new Product(data.listinginfo, 'jsons/product.json');
@@ -24,15 +24,15 @@ function testSearchProduct(name, theTest) {
         var ajax_manager = new AjaxManager();
         var count = 10;
 
-        Product.search("jsons/product.json", count, ajax_manager, function(productUrl, data) {
-            theTest(productUrl, data);
+        Product.search("jsons/product.json", count, ajax_manager, function(product) {
+            theTest(product);
             start();
         });
 
         var ajaxInfo = ajax_manager.queue.shift();
 
-        var data =   {
-            query : '',
+        var data = {
+            query: '',
             start: 0,
             currency: 7,
             count: count
@@ -40,11 +40,11 @@ function testSearchProduct(name, theTest) {
 
         equal(ajaxInfo.url, 'jsons/product.json/render');
         deepEqual(ajaxInfo.data, data);
-        
-         $.ajax({
+
+        $.ajax({
             url: 'jsons/product.json',
-            type : 'GET',
-            product : ajaxInfo.product,
+            type: 'GET',
+            product: ajaxInfo.product,
             dataType: 'json',
             success: function(data) {
                 ajaxInfo.success.call(this, data);
@@ -58,14 +58,17 @@ function testSearchProduct(name, theTest) {
     });
 };
 
-
-testProduct('Test new Product', function(product) {
+function assertDefaultProduct(product) {
     equal(product.url, 'jsons/product.json');
-    equal(product.avgPrice, 182), 
-        equal(product.diffPrice, 29);
+    equal(product.avgPrice, 182),
+    equal(product.diffPrice, 29);
     equal(product.diffPriceWithoutFee, 25);
     equal(product.minPrice, 153);
     equal(product.result, 84);
+};
+
+testProduct('Test new Product', function(product) {
+    assertDefaultProduct(product);
 
 });
 
@@ -142,6 +145,7 @@ testProduct('Test new Product Averages', function(product) {
     deepEqual(product.averages, averages);
 });
 
-testSearchProduct('Should search product', function(productUrl, data) {
-    console.info('data', productUrl, data);
+testSearchProduct('Should search product', function(product) {
+    console.info(product);
+    assertDefaultProduct(product);
 });

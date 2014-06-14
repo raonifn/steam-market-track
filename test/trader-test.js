@@ -17,7 +17,7 @@ function testTrader(name, url, callback) {
       }
     });
   });
-}
+};
 
 //FIXME: remove getCookie and walletinfo
 function getCookie(name) {

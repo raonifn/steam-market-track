@@ -7,22 +7,34 @@ testCrawlingDispatch = function(name, testSearch, theTest) {
         crawler.list(testSearch);
 
         var ajaxInfo = crawler.ajax_manager.queue.shift();
-        $.ajax({
-            url: 'jsons/crawling.json',
-            type: 'GET',
-            crawler: crawler,
-            dataType: 'json',
-            success: function(data) {
-                ajaxInfo.success.call(this, data);
-                theTest(this.crawler);
-                start();
-            },
-            error: function() {
-                ok(false, 'fail to get resource');
-                start();
-            }
+        $.getJSON('jsons/crawling.json').success(function(data) {
+            ajaxInfo.success.call(this, data);
+            theTest(crawler);
+            start();
+        }).fail(function() {
+            ok(false, 'fail to get resource');
+            start();
         });
     });
+};
+
+consumeProducts = function(crawler, callback) {
+    var ajaxes = [];
+    while (crawler.ajax_manager.queue.length > 0) {
+        var ajaxInfo = crawler.ajax_manager.queue.shift();
+        var deferred = $.get('jsons/product.json');
+        deferred.success(function(data) {
+            ajaxInfo.success.call(this, data);
+        }).fail(function() {
+            ok(false, 'fail to get resource');
+            start();
+        });
+
+        ajaxes.push(deferred);
+    }
+
+    $.when.apply($, ajaxes).done(callback);
+
 };
 
 testCrawlingProductList = function(name, theTest) {
@@ -30,8 +42,8 @@ testCrawlingProductList = function(name, theTest) {
         var crawler = new Crawler();
 
         var list = [];
-        crawler.list('something', 0, function(productUrl) {
-            list.push(productUrl);
+        crawler.list('something', 0, function(product) {
+            list.push(product);
         });
 
         var ajaxInfo = crawler.ajax_manager.queue.shift();
@@ -43,8 +55,11 @@ testCrawlingProductList = function(name, theTest) {
             dataType: 'json',
             success: function(data) {
                 ajaxInfo.success.call(this, data);
-                theTest(list);
-                start();
+
+                consumeProducts(crawler, function() {
+                    theTest(list);
+                    start();
+                });
             },
             error: function() {
                 ok(false, 'fail to get resource');
@@ -80,7 +95,7 @@ testCrawlingDispatch('Should dispatch all pages ajax after success', 'testSearch
         start: 0,
         query: 'testSearch'
     };
-    for (var i = 1 ; i < 377; i++) {
+    for (var i = 1; i < 377; i++) {
         var ajaxInfo = crawler.ajax_manager.queue.shift();
         data.start = i * 100;
 
@@ -92,10 +107,10 @@ testCrawlingDispatch('Should dispatch all pages ajax after success', 'testSearch
 });
 
 testCrawlingProductList('Should callback each product url', function(productList) {
-    equal(productList.length, 10);
+    equal(productList.length, 387);
 
     for (var i = 0; i < productList.length; i++) {
         var product = productList[i];
-        ok(product.match(/^http:\/\/steamcommunity.com\/market\/listings\/\d+\/.+/));
+        ok(product.url.match(/^http:\/\/steamcommunity.com\/market\/listings\/\d+\/.+/));
     }
 });

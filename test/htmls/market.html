@@ -1,0 +1,1069 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Comunidade Steam :: Mercado da Comunidade Steam</title>
+<link href="http://steamcommunity-a.akamaihd.net/public/shared/css/buttons.css?v=316862053" rel="stylesheet" type="text/css" >
+<link href="http://steamcommunity-a.akamaihd.net/public/shared/css/shared_global.css?v=1330876084" rel="stylesheet" type="text/css" >
+<link href="http://steamcommunity-a.akamaihd.net/public/css/globalv2.css?v=3499384636" rel="stylesheet" type="text/css" >
+<link href="http://steamcommunity-a.akamaihd.net/public/css/skin_1/modalContent.css?v=2176177452" rel="stylesheet" type="text/css" >
+<link href="http://steamcommunity-a.akamaihd.net/public/css/skin_1/economy.css?v=1617814919" rel="stylesheet" type="text/css" >
+<link href="http://steamcommunity-a.akamaihd.net/public/css/skin_1/economy_market.css?v=2683500258" rel="stylesheet" type="text/css" >
+<link href="http://steamcommunity-a.akamaihd.net/public/css/skin_1/html5.css?v=1141511784" rel="stylesheet" type="text/css" >
+<link href="http://steamcommunity-a.akamaihd.net/public/css/skin_1/header.css?v=3012322474" rel="stylesheet" type="text/css" >
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/prototype-1.7.js?v=671284548&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/scriptaculous/scriptaculous.js?load=effects,controls,slider,dragdrop&amp;v=1242099091&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/global.js?v=731073332&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/jquery-1.8.3.min.js?v=3862121119&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/shared/javascript/tooltip.js?v=2646267918&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/shared/javascript/shared_global.js?v=721663140&amp;l=portuguese"></script>
+<script type="text/javascript">$J = jQuery.noConflict();
+if ( typeof JSON != 'object' || !JSON.stringify || !JSON.parse ) { document.write( "<scr" + "ipt type=\"text\/javascript\" src=\"http:\/\/steamcommunity-a.akamaihd.net\/public\/javascript\/json2.js?v=4260573841&amp;l=portuguese\"><\/script>\n" ); };
+</script><script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/jquery-ui-1.9.2.js?v=3056878275&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/economy.js?v=722058343&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/market.js?v=3581690545&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/modalv2.js?v=3357881715&amp;l=portuguese"></script>
+<script type="text/javascript" src="http://steamcommunity-a.akamaihd.net/public/javascript/modalContent.js?v=211543636&amp;l=portuguese"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33779068-1']);
+  _gaq.push(['_setSampleRate', '0.4']);
+  _gaq.push(['_setCustomVar', 1, 'Logged In', 'true', 2]);
+  _gaq.push(['_setCustomVar', 2, 'Client Type', 'External', 2]);
+  _gaq.push(['_setCustomVar', 3, 'Cntrlr', 'market', 3]);
+  _gaq.push(['_setCustomVar', 4, 'Method', "market\/", 3]);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_setSessionCookieTimeout', 900000]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div style="width: 100%; text-align: center">
+<!-- header bar, contains info browsing user if logged in -->
+<div id="global_header">
+	<div class="content">
+	
+		<div class="logo">
+			<span id="logo_holder">
+				<a href="http://store.steampowered.com/">
+					<img src="http://steamcommunity-a.akamaihd.net/public/images/header/globalheader_logo.png" width="176" height="44" border="0" alt="Logo do Steam" />
+				</a>
+			</span>
+			<!--[if lt IE 7]>
+			<style type="text/css">
+			#logo_holder img { filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); }
+			#logo_holder { display: inline-block; width: 176px; height: 44px; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://steamcommunity-a.akamaihd.net/public/images/header/globalheader_logo.png'); }
+			</style>
+			<![endif]-->
+		</div>
+
+		<div style="position: absolute; left: 200px;" id="supernav">
+	<a class="menuitem supernav" href="http://store.steampowered.com/" data-tooltip-content="
+		<a class=&quot;submenuitem&quot; href=&quot;http://store.steampowered.com/&quot;>Em destaque</a>
+		<a class=&quot;submenuitem&quot; href=&quot;http://store.steampowered.com/news/&quot;>Notícias</a>
+		<a class=&quot;submenuitem&quot; href=&quot;http://store.steampowered.com/recommended/&quot;>Recomendados</a>
+		<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/my/wishlist/&quot;>Lista de Desejos</a>
+		<a class=&quot;submenuitem&quot; href=&quot;http://store.steampowered.com/stats/&quot;>ESTATÍSTICAS</a>
+	">
+		LOJA	</a>
+
+
+	<a class="menuitem supernav" style="display: block" href="http://steamcommunity.com/" data-tooltip-content="
+					<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/&quot;>Início</a>
+					<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/discussions/&quot;>DISCUSSÕES</a>
+					<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/workshop/&quot;>Workshop</a>
+					<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/greenlight/&quot;>Greenlight</a>
+					<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/market/&quot;>Mercado</a>
+													">
+
+		Comunidade	</a>
+
+	
+
+			<a class="menuitem supernav username" href="http://steamcommunity.com/id/raonifn/home/" data-tooltip-content="
+			<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/id/raonifn/home/&quot;>Atividade</a>
+			<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/id/raonifn/&quot;>Perfil</a>
+			<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/id/raonifn/friends/&quot;>Amigos</a>
+			<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/id/raonifn/groups/&quot;>Grupos</a>
+			<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/id/raonifn/screenshots/&quot;>As minhas criações</a>
+			<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/id/raonifn/badges/&quot;>Medalhas</a>
+			<a class=&quot;submenuitem&quot; href=&quot;http://steamcommunity.com/id/raonifn/inventory/&quot;>Inventário</a>
+		">
+			Hwarang		</a>
+	
+	<a class="menuitem" href="http://store.steampowered.com/about/">
+		SOBRE	</a>
+
+	<a class="menuitem" href="http://support.steampowered.com/">
+		SUPORTE	</a>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) { 
+		$('.tooltip').tooltip();
+		$('.supernav').tooltip({'location':'bottom', 'tooltipClass': 'supernav_content', 'offsetY':-4, 'offsetX': 1, 'horizontalSnap': 4, 'tooltipParent': '#supernav', 'correctForScreenSize': false});
+	});
+</script>		<div id="global_actions">
+							<div class="user_avatar">
+					<div class="playerAvatar offline">
+						<a href="http://steamcommunity.com/id/raonifn"><img id="headerUserAvatarIcon" src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/6e/6e1ca81a8e4a1934fd3a84163eb8c71255056eb6.jpg" alt=""></a>
+					</div>
+				</div>
+						<div id="global_action_menu">
+
+				<div class="header_installsteam_btn header_installsteam_btn_gray">
+					<div class="header_installsteam_btn_leftcap"></div>
+					<div class="header_installsteam_btn_rightcap"></div>
+					<a class="header_installsteam_btn_content" href="http://store.steampowered.com/about/">
+						Instalar o Steam					</a>
+				</div>
+										<div id="header_parental_area">
+		<div id="header_parental_link" class="header_parental_btn header_parental_unlocked" onclick="window.location.href=&quot;http:\/\/steamcommunity.com\/parental\/lock?first=1&quot;;"></div>
+	</div>
+						<!-- notification inbox area -->
+										<div id="header_notification_area">
+								<div id="header_notification_link" class="header_notification_btn header_notification_empty" onclick="ShowMenu( this, 'header_notification_dropdown', 'right' );">
+		</div>
+		<div class="popup_block_new" id="header_notification_dropdown" style="display: none;">
+		<div class="popup_body popup_menu">
+						<a class="popup_menu_item header_notification_comments " href="http://steamcommunity.com/id/raonifn/commentnotifications/">
+				<span class="notification_icon"></span>0 comentários novos			</a>
+			<div class="header_notification_dropdown_seperator"></div>
+						<a class="popup_menu_item header_notification_items " href="http://steamcommunity.com/id/raonifn/inventory/">
+				<span class="notification_icon"></span>0 itens novos no teu inventário			</a>
+			<div class="header_notification_dropdown_seperator"></div>
+						<a class="popup_menu_item header_notification_invites " href="http://steamcommunity.com/id/raonifn/home/invites/">
+				<span class="notification_icon"></span>0 convites novos			</a>
+			<div class="header_notification_dropdown_seperator"></div>
+						<a class="popup_menu_item header_notification_gifts " href="http://steamcommunity.com/id/raonifn/inventory/#pending_gifts">
+				<span class="notification_icon"></span>0 presentes novos			</a>
+			<div class="header_notification_dropdown_seperator"></div>
+						<a class="popup_menu_item header_notification_offlinemessages " href="#" onclick="LaunchWebChat(); HideMenu( 'header_notification_link', 'header_notification_dropdown' ); ">
+				<span class="notification_icon"></span>0 mensagens de chat não lidas			</a>
+					</div>
+	</div>
+					</div>
+
+					<span class="pulldown global_action_link" id="account_pulldown" onclick="ShowMenu( this, 'account_dropdown', 'right' );">Conta de raonifn</span>
+					<div class="popup_block" id="account_dropdown" style="display: none;">
+						<div class="shadow_ul"></div><div class="shadow_top"></div><div class="shadow_ur"></div><div class="shadow_left"></div><div class="shadow_right"></div><div class="shadow_bl"></div><div class="shadow_bottom"></div><div class="shadow_br"></div>						<div class="popup_body popup_menu shadow_content">
+							<a class="popup_menu_item" href="https://steamcommunity.com/login/logout">Terminar Sessão</a>
+							<a class="popup_menu_item" href="http://store.steampowered.com/account/">Detalhes da conta</a>
+							<span class="popup_menu_item" id="account_language_pulldown">Alterar idioma</span>
+							<div class="popup_block" id="language_dropdown" style="display: none;">
+								<div class="shadow_ul"></div><div class="shadow_top"></div><div class="shadow_ur"></div><div class="shadow_left"></div><div class="shadow_right"></div><div class="shadow_bl"></div><div class="shadow_bottom"></div><div class="shadow_br"></div>								<div class="popup_body popup_menu shadow_content">
+																													<a class="popup_menu_item tight" href="?l=bulgarian">Български (Búlgaro)</a>
+																													<a class="popup_menu_item tight" href="?l=czech">čeština (Checo)</a>
+																													<a class="popup_menu_item tight" href="?l=danish">Dansk (Dinamarquês)</a>
+																													<a class="popup_menu_item tight" href="?l=dutch">Nederlands (Holandês)</a>
+																													<a class="popup_menu_item tight" href="?l=english">English (Inglês)</a>
+																													<a class="popup_menu_item tight" href="?l=finnish">Suomi (Finlandês)</a>
+																													<a class="popup_menu_item tight" href="?l=french">Français (Francês)</a>
+																													<a class="popup_menu_item tight" href="?l=german">Deutsch (Alemão)</a>
+																													<a class="popup_menu_item tight" href="?l=greek">Ελληνικά (Grego)</a>
+																													<a class="popup_menu_item tight" href="?l=hungarian">Magyar (Húngaro)</a>
+																													<a class="popup_menu_item tight" href="?l=italian">Italiano (Italiano)</a>
+																													<a class="popup_menu_item tight" href="?l=japanese">日本語 (Japonês)</a>
+																													<a class="popup_menu_item tight" href="?l=koreana">한국어 (Coreano)</a>
+																													<a class="popup_menu_item tight" href="?l=norwegian">Norsk (Norueguês)</a>
+																													<a class="popup_menu_item tight" href="?l=polish">Polski (Polaco)</a>
+																																							<a class="popup_menu_item tight" href="?l=brazilian">Português (Brasil)</a>
+																													<a class="popup_menu_item tight" href="?l=romanian">Română (Romeno)</a>
+																													<a class="popup_menu_item tight" href="?l=russian">Русский (Russo)</a>
+																													<a class="popup_menu_item tight" href="?l=schinese">简体中文 (Chinês Simplificado)</a>
+																													<a class="popup_menu_item tight" href="?l=spanish">Español (Espanhol)</a>
+																													<a class="popup_menu_item tight" href="?l=swedish">Svenska (Sueco)</a>
+																													<a class="popup_menu_item tight" href="?l=tchinese">繁體中文 (Chinês Tradicional)</a>
+																													<a class="popup_menu_item tight" href="?l=thai">ไทย (Tailandês)</a>
+																													<a class="popup_menu_item tight" href="?l=turkish">Türkçe (Turco)</a>
+																													<a class="popup_menu_item tight" href="?l=ukrainian">Українська (Ucraniano)</a>
+																		<a class="popup_menu_item tight" href="http://translation.steampowered.com" target="_blank">Ajuda-nos a traduzir o Steam</a>
+								</div>
+							</div>
+							<a class="popup_menu_item" href="http://steamcommunity.com/id/raonifn">Ver perfil</a>
+													</div>
+					</div>
+					<script type="text/javascript">
+						$J( function() { RegisterFlyout( 'account_language_pulldown', 'language_dropdown', 'leftsubmenu', 'bottomsubmenu' ); } );
+					</script>
+							</div>
+		</div>
+		
+		
+		
+	</div>
+
+</div>
+
+<div id="modalBG" style="display: none"></div>
+<script type="text/javascript">
+	g_sessionID = "OTM4ODEwOTMw";
+	g_steamID = "76561197984049299";
+	$J( InitMiniprofileHovers );
+	$J( InitEmoticonHovers );
+
+	$J( function() {
+		window.BindCommunityTooltip = function( $Selector ) { $Selector.tooltip( {'tooltipClass': 'community_tooltip', 'dataName': 'communityTooltip' } ); };
+		BindCommunityTooltip( $J('[data-community-tooltip]') );
+	})
+
+	$J( function() { InitEconomyHovers( "<link href=\"http:\/\/steamcommunity-a.akamaihd.net\/public\/css\/skin_1\/economy.css?v=1617814919\" rel=\"stylesheet\" type=\"text\/css\" >\n", "<script type=\"text\/javascript\" src=\"http:\/\/steamcommunity-a.akamaihd.net\/public\/javascript\/economy.js?v=722058343&amp;l=portuguese\"><\/script>\n" );});</script><!-- /header bar -->
+</div>
+
+
+<div class="pagecontent no_header ">
+<!-- top content -->
+<div id="modalContentScrollbarHack" style="display: none"></div>
+
+<div id="modalContent" class="modal_frame" style="display: none">
+	<div id="modalContentTitleBar">
+		<a id="modalContentTitleBarLink" href="" target="_blank">&nbsp;</a>
+		<a id="modalContentTitleBarImageLink" href="" target="_blank"><img src="http://steamcommunity-a.akamaihd.net/public/images/skin_1/ico_external_link.gif" alt=""></a>
+		<div id="modalContentDismiss" class="modalContentDismissImage" onclick="HideModalContent();">
+			<img src="http://steamcommunity-a.akamaihd.net/public/images/x9x9.gif" width="9" height="9" border="0" alt="Fechar">
+		</div>
+	</div>
+	<div id="modalContentWait"><img src="http://steamcommunity-a.akamaihd.net/public/images/login/throbber.gif" alt="A carregar"></div>
+	<div id="modalContentFrameContainer"></div>
+</div><div id="BG_top">
+	<h1 class="market_header_title">
+		<a href="http://steamcommunity.com/market/">
+			<img src="http://steamcommunity-a.akamaihd.net/public/images/economy/market/header/header_pt.png" alt="Mercado da Comunidade Steam" />
+		</a>
+	</h1>
+		<div class="market_header_hidden">
+		<p>Compra e vende itens a membros da comunidade com os fundos da Carteira Steam.</p>
+	</div>
+		<div class="user_info">
+		<h2 class="market_header_hidden">Informações do utilizador</h2>
+		<span class="iconHolder_offline" style="display: inline-block">
+			<span class="avatarIcon"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/6e/6e1ca81a8e4a1934fd3a84163eb8c71255056eb6.jpg" alt=""></span>
+		</span>
+		<span class="user_info_text">
+			<a id="marketWalletBalance" href="http://store.steampowered.com/account/">Saldo na Carteira: <span id="marketWalletBalanceAmount">&#82;&#36; 54,60</span></a>
+						<br/>
+			<a href="http://steamcommunity.com/my/inventory/">Ver inventário</a>
+					</span>
+	</div>
+	</div><!-- /top content -->
+<!-- main body -->
+<div id="BG_bottom">
+	<div id="myMarketTabs">
+				<div id="myMarketTabs_empty" style="height: 70px;"></div>
+		<h2 class="market_header_hidden">A minha atividade no Mercado</h2>
+		<div class="pick_and_sell_button">
+									<a href="javascript:void(0)" class="item_market_action_button item_market_action_button_green" onclick="ShowModalContent('http://steamcommunity.com/my/inventory/?modal=1&amp;market=1#440', 'Escolhe um item do teu inventário', 'http://steamcommunity.com/my/inventory/#440', false); return false;">
+							<span class="item_market_action_button_edge item_market_action_button_left"></span>
+				<span class="item_market_action_button_contents">
+					Vender um item				</span>
+				<span class="item_market_action_button_edge item_market_action_button_right"></span>
+				<span class="item_market_action_button_preload"></span>
+			</a>
+		</div>
+		<div class="market_tab_well_tabs">
+			<a id="tabMyListings" class="market_tab_well_tab market_tab_well_tab_active" href="#">
+				<span class="market_tab_well_tab_left"></span>
+				<span class="market_tab_well_tab_contents">Os meus anúncios ativos					<span class="my_market_header_count">(<span id="my_market_activelistings_number">0</span>)</span>
+				</span>
+				<span class="market_tab_well_tab_right"></span>
+				<span class="market_tab_well_tab_preload"></span>
+			</a>
+			&nbsp;
+			<a id="tabMyMarketHistory" class="market_tab_well_tab market_tab_well_tab_inactive" href="#">
+				<span class="market_tab_well_tab_left"></span>
+				<span class="market_tab_well_tab_contents">O meu histórico no Mercado</span>
+				<span class="market_tab_well_tab_right"></span>
+				<span class="market_tab_well_tab_preload"></span>
+			</a>
+		</div>
+	</div>
+	<div id="mainContents">
+		<div id="myListings">
+						<div id="tabContentsMyListings">
+				<div class="market_content_block my_listing_section market_home_listing_table">
+	<h3 class="my_market_header">
+		<span class="my_market_header_active">Vendas</span>
+		<span class="my_market_header_count">(<span id="my_market_selllistings_number">0</span>)</span>
+	</h3>
+			<div class="market_listing_table_message">Não tens nenhum item à venda no Mercado da Comunidade. Vende itens a partir do teu inventário ou clica no botão "Vender um item" acima.</div>
+	</div>
+			</div>
+			<div id="tabContentsMyMarketHistory" class="my_listing_section market_content_block" style="display:none">
+				<div style="text-align: center">
+					<img src="http://steamcommunity-a.akamaihd.net/public/images/login/throbber.gif" alt="A carregar">
+				</div>
+			</div>
+					</div>
+
+		<div id="sideBar">
+			<div id="findItems">
+				<div class="market_search_sidebar_contents">
+					<h2 class="market_section_title">
+						Procurar itens					</h2>
+					<div class="marker_search_sidebar_section_tip">
+						Estás à procura de um item específico?					</div>
+					<div class="market_search_box_container">
+						<form id="market_search" accept-charset="UTF8" action="http://steamcommunity.com/market/search" method="GET" >
+							<span class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<input class="filter_search_box market_search_sidebar_search_box" type="text" id="findItemsSearchBox" value="" placeholder="Procurar" name="q" autocomplete="off" tabindex="1" />
+									<input class="market_search_submit_button" id="findItemsSearchSubmit" type="submit" value="Enviar" tabindex="3" />
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</span>
+							<br>
+							<div style="text-align: right; padding-right: 15px; margin-top: 0.25em;">
+								<div id="market_search_advanced_show" class="btn_black btn_details btn_small" onclick="ShowAdvancedSearchOptions();">
+									<span>
+										<span style="float: left;">Mostrar opções avançadas...</span>
+										<span class="btn_details_arrow down"></span>
+									</span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="browseItems">
+				<div class="market_search_sidebar_contents">
+					<h2 class="market_section_title">
+						Procurar por jogo					</h2>
+					<div class="market_search_game_button_group">
+													<a href="http://steamcommunity.com/market/search?appid=238460" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/238460/2f258aaff583d797812cdcf24830d5992f48733b.jpg" alt="BattleBlock Theater" />
+									</span>
+									<span class="game_button_game_name">
+										BattleBlock Theater									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+													<a href="http://steamcommunity.com/market/search?appid=730" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/730/69f7ebe2735c366c65c0b33dae00e12dc40edbe4.jpg" alt="Counter-Strike: Global Offensive" />
+									</span>
+									<span class="game_button_game_name">
+										Counter-Strike: Global Offensive									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+													<a href="http://steamcommunity.com/market/search?appid=570" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/570/0bbb630d63262dd66d2fdd0f7d37e8661a410075.jpg" alt="Dota 2" />
+									</span>
+									<span class="game_button_game_name">
+										Dota 2									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+													<a href="http://steamcommunity.com/market/search?appid=238960" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/238960/1110764aac57ac28d7ffd8c43071c75d5482a9c9.jpg" alt="Path of Exile" />
+									</span>
+									<span class="game_button_game_name">
+										Path of Exile									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+													<a href="http://steamcommunity.com/market/search?appid=251970" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/251970/cee4aeadcf73b7b00018c535fa3b850bfcdb9982.jpg" alt="Sins of a Dark Age" />
+									</span>
+									<span class="game_button_game_name">
+										Sins of a Dark Age									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+													<a href="http://steamcommunity.com/market/search?appid=753" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/753/135dc1ac1cd9763dfc8ad52f4e880d2ac058a36c.jpg" alt="Steam" />
+									</span>
+									<span class="game_button_game_name">
+										Steam									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+													<a href="http://steamcommunity.com/market/search?appid=440" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/440/e3f595a92552da3d664ad00277fad2107345f743.jpg" alt="Team Fortress 2" />
+									</span>
+									<span class="game_button_game_name">
+										Team Fortress 2									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+													<a href="http://steamcommunity.com/market/search?appid=230410" class="game_button">
+								<span class="game_button_edge game_button_left"></span>
+								<span class="game_button_contents">
+									<span class="game_button_game_icon">
+										<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/230410/2e271fb410bb8be5536a24d4114b42f9e5c91176.jpg" alt="Warframe" />
+									</span>
+									<span class="game_button_game_name">
+										Warframe									</span>
+								</span>
+								<span class="game_button_edge game_button_right"></span>
+								<span class="game_button_preload"></span>
+							</a>
+											</div>
+				</div>
+			</div>
+			<div id="moreInfo">
+				<div class="market_search_sidebar_contents">
+					Lê a <a href="http://steamcommunity.com/market/faq/">FAQ do Mercado da Comunidade</a>					<br/><br/>
+					Junta-te ao <a href="http://steamcommunity.com/market/communitygroup/">grupo do Mercado da Comunidade</a> para discussões e anúncios oficiais.				</div>
+			</div>
+		</div>
+		<div id="sellListings" class="market_page_left">
+			<div class="market_large_tab_well">
+				<h2 class="market_section_title">
+											Atividade no Mercado									</h2>
+				<div class="market_large_tab_well_gradient selectableNone"></div>
+				<div class="market_tab_well_tabs">
+					<a id="tabPopularItems" class="market_tab_well_tab market_tab_well_tab_active" href="#">
+						<span class="market_tab_well_tab_left"></span>
+						<span class="market_tab_well_tab_contents">Itens populares</span>
+						<span class="market_tab_well_tab_right"></span>
+						<span class="market_tab_well_tab_preload"></span>
+					</a>
+					&nbsp;
+					<a id="tabRecentSellListings" class="market_tab_well_tab market_tab_well_tab_inactive" href="#">
+						<span class="market_tab_well_tab_left"></span>
+						<span class="market_tab_well_tab_contents">Novos itens anunciados</span>
+						<span class="market_tab_well_tab_right"></span>
+						<span class="market_tab_well_tab_preload"></span>
+					</a>
+					&nbsp;
+					<a id="tabRecentSoldListings" class="market_tab_well_tab market_tab_well_tab_inactive" href="#">
+						<span class="market_tab_well_tab_left"></span>
+						<span class="market_tab_well_tab_contents">Vendido recentemente</span>
+						<span class="market_tab_well_tab_right"></span>
+						<span class="market_tab_well_tab_preload"></span>
+					</a>
+				</div>
+				<div class="market_section_header_cap selectableNone"></div>
+			</div>
+			<div class="market_large_tab_well_sep"></div>
+			<div id="popularItemsTable" class="market_content_block market_listing_table market_home_listing_table market_home_main_listing_table market_listing_table_active">
+				<div id="popularItemsRows">
+					<div class="market_listing_table_header">
+						<div class="market_listing_right_cell market_listing_their_price">PREÇO</div>
+						<div class="market_listing_right_cell market_listing_num_listings">QUANTIDADE</div>
+												<div><span class="market_listing_header_namespacer"></span>NOME</div>
+					</div>
+					
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/730/Huntsman%20Weapon%20Case" id="resultlink_0">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_0">
+				<img id="result_0_image" src="http://steamcommunity-a.akamaihd.net/economy/image/hn0d4cNVh9_LV3g7HvRaNj4x11CHJYmfH5mrIfoSEpFPdioamknBzWuOZMU4lAa4JjaMF446iZsZkqwz-wQFm0A0LRCMXNzGUMNm2TDISKskJNdF4mnJnxeIrCmgGDnHAHg_Td4e0pE9xj7MNohV8TImmxfZPcfKSs_xd-ADX8UWeWpCjkjRkDuOd8Qy/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 2,27</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">18,850</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_0_name" class="market_listing_item_name" style="color: #D2D2D2;">Caixa Huntsman</span>
+			<br/>
+			<span class="market_listing_game_name">Counter-Strike: Global Offensive</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/440/Mann%20Co.%20Supply%20Crate%20Key" id="resultlink_1">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_1">
+				<img id="result_1_image" src="http://steamcommunity-a.akamaihd.net/economy/image/CbtDHr-sZ9YqUcyYnND8OLH3ia_73GmW_p8fgng2tJ_AsHTl5rAhxIqI0Ga6sKC2qfDS6_XDaZL4lBiQeS6lg_6xZfj2sH2V2pXWO-Kro6C9tJ7pp8Zyn_7LTtdkJPHOxbs36aO0Mpbcw4tr4fnx6Kntmg==/62fx62f" style="border-color: #7D6D00;background-color: #3C352E;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 5,46</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">4,031</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_1_name" class="market_listing_item_name" style="color: #7D6D00;">Chave para Caixote Mann Co. </span>
+			<br/>
+			<span class="market_listing_game_name">Team Fortress 2</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/570/Treasure%20Key" id="resultlink_2">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_2">
+				<img id="result_2_image" src="http://steamcommunity-a.akamaihd.net/economy/image/GhIsYxrXyD5tSY8IUfNyDKJe5tJep8ZwuI0bF_QSL_ycFwSaG8-MOdqRxa4qkyaRpUThjQHrhn3zl1oc9xVhusARCoRB3JkWytaV6m7jJJezBPSUAOnYd--GUEWqByv4gRVYxAfMmnDMiMCufIopwvgZp5tcsNwmutAbA_UB/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 4,44</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">7,838</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_2_name" class="market_listing_item_name" style="color: #D2D2D2;">Chave de Tesouro</span>
+			<br/>
+			<span class="market_listing_game_name">Dota 2</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/730/Operation%20Phoenix%20Weapon%20Case" id="resultlink_3">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_3">
+				<img id="result_3_image" src="http://steamcommunity-a.akamaihd.net/economy/image/lMX88DqEk3P1mhjrbnx9syyJNkF-9J0zIVTL8YqaNRRdzssLY5jVYVVDBBVIHCE9NI5tBnfrnTcnX8zji4wiHlKMzAF1jchqbg4GCUBAby42nDZUG7jdMylFzPnQkB5DEpeCVSPJxmZVCQQZRlF2eHXEIAl3v4BpIADB9sLddkdZkthQIJ7EMQZDFxRC/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 0,89</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">50,499</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_3_name" class="market_listing_item_name" style="color: #D2D2D2;">Caixa da Operação Phoenix</span>
+			<br/>
+			<span class="market_listing_game_name">Counter-Strike: Global Offensive</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/570/2014%20Player%20Card%20Pack" id="resultlink_4">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_4">
+				<img id="result_4_image" src="http://steamcommunity-a.akamaihd.net/economy/image/dj31MFNV44TBX3fIgH6X-M5xP4EXJe3KFJvj1yWfygjwON3JUk2ng3aHPW77HsNlyWs43khprcdfhaHSM47ZZb06wMBSHufCMfd4NapIz3TFZDmVcnqjyhvb_tJ73ZhZu2OClktJs8Q1n2lu_giaMJ9jKJMYMvKaR5OrgX2OkgrvbZzUE0s=/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 0,25</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">26,819</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_4_name" class="market_listing_item_name" style="color: #D2D2D2;">Pack - Cartas de Jogadores (2014)</span>
+			<br/>
+			<span class="market_listing_game_name">Dota 2</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/570/25%20Compendium%20Points" id="resultlink_5">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_5">
+				<img id="result_5_image" src="http://steamcommunity-a.akamaihd.net/economy/image/FjycwgaIZrWLPKGoBTkMcq5wVnNC-Gj7Xvg1t6DYUYKQObQ7B5Aisjzk6w5-WVjvqWpRLB20KPYV4nS8o98f09E3qzNGlTu3IpTsCX9CbvypbUx3C4g0tl6lLLWqyVKJjjjiMk7AYfp2-OxdLUVSvqNiFGUesnSrXvB95vmYAIKQKrUx/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 0,15</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">106,678</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_5_name" class="market_listing_item_name" style="color: #D2D2D2;">25 Pontos do Compêndio</span>
+			<br/>
+			<span class="market_listing_game_name">Dota 2</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/730/CS%3AGO%20Case%20Key" id="resultlink_6">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_6">
+				<img id="result_6_image" src="http://steamcommunity-a.akamaihd.net/economy/image/FKEAQGPBzsAF7oA1xCneWqztyvEnscCA0SBTLyDPlv3dqje7Ot2I0qU3nMviSYLUtOqRti6uwITXK1Q9IdmB99LoM7si1ImYtnye1OAIvMel6tvedvuWw40gW3dt2IOpjfBy4H6Jy9TxKMmUtl-HlPH6jeV5rdzdjSJcKjnfhq6Stymz/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 5,56</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">738</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_6_name" class="market_listing_item_name" style="color: #D2D2D2;">Chave: Caixa CS:GO</span>
+			<br/>
+			<span class="market_listing_game_name">Counter-Strike: Global Offensive</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/730/Winter%20Offensive%20Weapon%20Case" id="resultlink_7">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_7">
+				<img id="result_7_image" src="http://steamcommunity-a.akamaihd.net/economy/image/Teo9s7oKUhy-QrqhGf-hjPWm9wL-elxcaoxpu_0Z6SuE4QpI4xYUDh6bpl8_n_0C7aGsRfdlXFhsh26p_A_-IYujDUL1AwkFJdakQzfDsxHvs_cXmzYcXGKdbrOnE8J_y-5LEKIRXggbg_UCZon4Qvzg5kWnYxcGPY1j7bdY-X-EtUwUphECW0ybtV41/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 0,20</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">199,352</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_7_name" class="market_listing_item_name" style="color: #D2D2D2;">Caixa da Ofensiva de Inverno</span>
+			<br/>
+			<span class="market_listing_game_name">Counter-Strike: Global Offensive</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/730/AK-47%20%7C%20Redline%20%28Field-Tested%29" id="resultlink_8">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_8">
+				<img id="result_8_image" src="http://steamcommunity-a.akamaihd.net/economy/image/Oopn2-pcvWM3ClBZPQNmE4LGrWquLLMj48SDQ9nlLrTzgVAgs0D7cZfTTKcbYzqdmsH2Laczsyflz4RR2PM5vvzDRCqiRPx4h6JIrRgpKYye170142b9PunOtUOcom2O8Zl_Lq8RvkuQkk26FxM2iI7brHe6YvgqvsLYEc_zaLSljxJ79BKxJZDES_0ULT-L2YTof6YypHizwokXlrgqv_U=/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 26,84</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">261</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_8_name" class="market_listing_item_name" style="color: #D2D2D2;">AK-47 | Redline (Testado no Terreno)</span>
+			<br/>
+			<span class="market_listing_game_name">Counter-Strike: Global Offensive</span>
+		</div>
+	</div>
+</a>
+
+<a class="market_listing_row_link" href="http://steamcommunity.com/market/listings/730/Huntsman%20Case%20Key%20" id="resultlink_9">
+	<div class="market_listing_row market_recent_listing_row market_listing_searchresult" id="result_9">
+				<img id="result_9_image" src="http://steamcommunity-a.akamaihd.net/economy/image/1fd7zB3_Vn_6pJjT8EFRHm27sX1Zj1g_LmpLyRSnGbkc_Ew3ROMQbVp9hC3WIQ2QdbzqOlCQWDsoYUzbFbEOsxO-SDdc6hEnXSGGNt5RB4V8kKZiDs0CPCJ6W_cJ-l7rT6ULOguwUTxbat4g3zlc1jSqoTpWxU4weTcay1jkXu0fowg6VuRMeFA0/62fx62f" style="border-color: #D2D2D2;" class="market_listing_item_img" alt="" />		
+				<div class="market_listing_right_cell market_listing_their_price">
+			<span class="market_table_value">
+				A partir de:<br/>
+				<span style="color:white">&#82;&#36; 5,77</span>
+			</span>
+			<span class="market_arrow_down" style="display: none"></span>
+			<span class="market_arrow_up" style="display: none"></span>
+		</div>
+		<div class="market_listing_right_cell market_listing_num_listings">
+			<span class="market_table_value">
+				<span class="market_listing_num_listings_qty">712</span>
+			</span>
+		</div>
+		
+				<div class="market_listing_item_name_block">
+			<span id="result_9_name" class="market_listing_item_name" style="color: #D2D2D2;">Chave: Caixa Huntsman </span>
+			<br/>
+			<span class="market_listing_game_name">Counter-Strike: Global Offensive</span>
+		</div>
+	</div>
+</a>
+				</div>
+				<div class="market_listing_table_showmore">
+					<a id="popularItemsMore" href="http://steamcommunity.com/market/search?q=">Ver todos</a>
+				</div>
+			</div>
+			<div id="sellListingsTable" class="market_content_block market_listing_table market_home_listing_table market_home_main_listing_table" style="display:none">
+				<div id="sellListingRows">
+					<div class="market_listing_table_header">
+						<span class="market_listing_right_cell market_listing_action_buttons"></span>
+						<span class="market_listing_right_cell market_listing_their_price">PREÇO</span>
+						<span class="market_listing_right_cell market_listing_seller">VENDEDOR</span>
+						<span><span class="market_listing_header_namespacer"></span>NOME</span>
+					</div>
+				</div>
+				<div class="market_listing_table_showmore">
+					<a id="sellListingsMore" href="#">Mostrar mais</a>
+				</div>
+			</div>
+			<div id="soldListingTable" class="market_content_block market_listing_table market_home_listing_table market_home_main_listing_table" style="display:none">
+				<div id="soldListingRows">
+					<div class="market_listing_table_header">
+						<span class="market_listing_right_cell market_listing_their_price">PREÇO</span>
+						<span class="market_listing_right_cell market_listing_seller">VENDEDOR</span>
+						<span><span class="market_listing_header_namespacer"></span>NOME</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div id="hover" style="display: none;">
+		<div class="shadow_ul"></div><div class="shadow_top"></div><div class="shadow_ur"></div><div class="shadow_left"></div><div class="shadow_right"></div><div class="shadow_bl"></div><div class="shadow_bottom"></div><div class="shadow_br"></div>		<div class="inventory_iteminfo hover_box shadow_content" id="iteminfo_clienthover">
+			<div class="item_desc_content" id="hover_content">
+				<div class="item_desc_icon">
+					<div class="item_desc_icon_center">
+						<img id="hover_item_icon" src="http://steamcommunity-a.akamaihd.net/public/images/trans.gif" alt="" />
+					</div>
+				</div>
+				<div class="item_desc_description">
+					<h1 class="hover_item_name" id="hover_item_name"></h1>
+					<div class="fraud_warning" id="hover_fraud_warnings"></div>
+					<div class="item_desc_game_info" id="hover_game_info">
+						<div class="item_desc_game_icon">
+							<img id="hover_game_icon" src="http://steamcommunity-a.akamaihd.net/public/images/trans.gif" alt="" />
+						</div>
+						<div id="hover_game_name" class="ellipsis"></div>
+						<div id="hover_item_type" class=""></div>
+					</div>
+					<div class="item_desc_descriptors" id="hover_item_descriptors">
+					</div>
+					<div class="item_desc_descriptors" id="hover_item_owner_descriptors">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hover_arrow_left" id="hover_arrow_left">
+			<div class="hover_arrow_inner"></div>
+		</div>
+		<div class="hover_arrow_right" id="hover_arrow_right">
+			<div class="hover_arrow_inner"></div>
+		</div>
+	</div>
+
+	<br />
+</div></div>
+<div id="market_buynow_dialog" class="market_modal_dialog" style="display: none;">
+	<div class="market_dialog_title">
+		<span id="market_buynow_dialog_title">
+			Comprar um item		</span>
+		<span class="market_dialog_cancel">
+			<a id="market_buynow_dialog_cancel" href="#" class="market_dialog_title_cancel">Cancelar<span class="market_dialog_title_cancel_X">X</span></a>
+			<a id="market_buynow_dialog_cancel_close" href="#" class="market_dialog_title_cancel" style="display: none">Fechar<span class="market_dialog_title_cancel_X">X</span></a>
+		</span>
+	</div>
+	<div id="market_buynow_dialog_contents" class="market_dialog_contents">
+		<div id="market_buynow_dialog_purchasecomplete_message">
+			<div class="market_dialog_topinfo">
+				Parabéns pela tua compra! Podes ver o teu novo item no teu <a href="http://steamcommunity.com/my/inventory/">inventário</a>.			</div>
+			<div class="market_dialog_content_spacer">
+			</div>
+		</div>
+		<div id="market_buynow_dialog_item">
+		</div>
+		<div class="market_dialog_content_spacer">
+		</div>
+		<div id="market_buynow_dialog_totals" class="market_dialog_totals">
+			<div>
+				<span id="market_buynow_dialog_totals_subtotal" class="market_dialog_totals_cost">&nbsp;</span>
+				<span class="market_dialog_totals_label">Subtotal:</span>
+			</div>
+			<div style="clear: both"></div>
+			<br/>
+			<div>
+				<span id="market_buynow_dialog_totals_publisherfee" class="market_dialog_totals_cost">&nbsp;</span>
+				<span class="market_dialog_totals_label">Taxa do <span id="market_buynow_dialog_totals_publisherfee_gamename"></span> (<span id="market_buynow_dialog_totals_publisherfee_percent"></span>%):</span>
+			</div>
+			<div style="clear: both"></div>
+			<div>
+				<span id="market_buynow_dialog_totals_transactionfee" class="market_dialog_totals_cost">&nbsp;</span>
+				<span class="market_dialog_totals_label">Taxa de transação Steam (<span id="market_buynow_dialog_totals_transactionfee_percent"></span>%):</span>
+			</div>
+			<div>
+				<span class="market_dialog_totals_cost">&nbsp;</span>
+				<span class="market_dialog_totals_label market_buynow_dialog_totals_fee_collector">
+											Taxas cobradas pela Valve Corporation									</span>
+			</div>
+			<div style="clear: both"></div>
+			<div class="market_dialog_totals_separator"></div>
+			<div>
+				<span id="market_buynow_dialog_totals_total" class="market_dialog_totals_cost">&nbsp;</span>
+				<span class="market_dialog_totals_label">Total:</span>
+			</div>
+			<div style="clear: both"></div>
+		</div>
+		<div style="clear:both"></div>
+		<div class="market_dialog_content_spacer">
+		</div>
+		<div id="market_buynow_dialog_paymentinfo_frame_container">
+			<div id="market_buynow_dialog_paymentinfo_frame" class="market_dialog_content_frame">
+				<div id="market_buynow_dialog_paymentinfo" class="market_dialog_content market_dialog_content_darker">
+					<div id="market_buynow_dialog_purchase_throbber" style="display: none;">
+						<img src="http://steamcommunity-a.akamaihd.net/public/images/login/throbber.gif" alt="A processar...">
+					</div>
+					<a id="market_buynow_dialog_purchase" href="#" class="btn_green_white_innerfade btn_medium_wide btn_uppercase"><span>Compra</span></a>
+					<a id="market_buynow_dialog_addfunds" href="#" class="btn_green_white_innerfade btn_medium_wide btn_uppercase" style="display: none"><span>Adicionar fundos</span></a>
+					<div>
+						<div id="market_buynow_dialog_paymentinfo_option_labels">
+							<span>Método de pagamento:</span>
+							<br/>
+							<br/>
+							<span>Conta Steam:</span>
+						</div>
+						<div>
+							<span id="market_buynow_dialog_paymentmethod">A minha Carteira Steam <span id="market_buynow_dialog_walletbalance">(<span id="market_buynow_dialog_walletbalance_amount"></span>)</span></span>
+							<br/>
+							<br/>
+							<span id="market_buynow_dialog_myaccountname">raonifn</span>
+						</div>
+					</div>
+					<div id="market_buynow_dialog_accept_ssa_container">
+						<br/>
+						<input id="market_buynow_dialog_accept_ssa" type="checkbox" value="0" name="accept_ssa">
+						<label id="market_buynow_dialog_accept_ssa_label" for="market_buynow_dialog_accept_ssa">Concordo com os termos do <a href="javascript:SSAPopup();" class="body_link" >Acordo de Subscrição Steam</a> (última atualização a 3 Jul, 2013.)</label>
+					</div>
+										<div style="clear: both"></div>
+				</div>
+			</div>
+		</div>
+		<div id="market_buynow_dialog_bottom_buttons" style="display: none">
+			<div class="market_dialog_bottom_buttons">
+				<a id="market_buynow_dialog_close" href="#" class="btn_grey_white_innerfade btn_medium_wide"><span>Fechar</span></a>
+				<a id="market_buynow_dialog_viewinventory" href="http://steamcommunity.com/my/inventory/" class="btn_grey_white_innerfade btn_medium_wide"><span>Ver inventário</span></a>
+				<div style="clear: both"></div>
+			</div>
+		</div>
+		<div id="market_buynow_dialog_error">
+			<br/>
+			<span id="market_buynow_dialog_error_text"></span>
+		</div>
+	</div>
+</div>
+
+<div id="market_removelisting_dialog" class="market_modal_dialog" style="display: none;">
+	<div class="market_dialog_title">
+		<span id="market_removelisting_dialog_title">
+			Remover um anúncio		</span>
+		<span class="market_dialog_cancel">
+			<a id="market_removelisting_dialog_cancel" href="#" class="market_dialog_title_cancel">Cancelar<span class="market_dialog_title_cancel_X">X</span></a>
+		</span>
+	</div>
+	<div id="market_removelisting_dialog_contents" class="market_dialog_contents">
+		<div id="market_removelisting_dialog_confirmation">
+			<div>
+				Remover o anúncio de <span id="market_removelisting_dialog_itemname"></span> e retorná-lo ao teu inventário?			</div>
+			<br/>
+			<div id="market_removelisting_dialog_buttons">
+				<div id="market_removelisting_dialog_accept_throbber" style="display: none;">
+					<img src="http://steamcommunity-a.akamaihd.net/public/images/login/throbber.gif" alt="A processar...">
+				</div>
+				<a id="market_removelisting_dialog_accept" href="#" class="btn_green_white_innerfade btn_medium_wide"><span>Remover anúncio</span></a>
+				<div style="clear: both"></div>
+			</div>
+		</div>
+		<div id="market_removelisting_dialog_error">
+		</div>
+	</div>
+</div><div id="market_removelisting_dialog" class="market_modal_dialog" style="display: none;">
+	<div class="market_dialog_title">
+		<span id="market_removelisting_dialog_title">
+			Remover um anúncio		</span>
+		<span class="market_dialog_cancel">
+			<a id="market_removelisting_dialog_cancel" href="#" class="market_dialog_title_cancel">Cancelar<span class="market_dialog_title_cancel_X">X</span></a>
+		</span>
+	</div>
+	<div id="market_removelisting_dialog_contents" class="market_dialog_contents">
+		<div id="market_removelisting_dialog_confirmation">
+			<div>
+				Remover o anúncio de <span id="market_removelisting_dialog_itemname"></span> e retorná-lo ao teu inventário?			</div>
+			<br/>
+			<div id="market_removelisting_dialog_buttons">
+				<div id="market_removelisting_dialog_accept_throbber" style="display: none;">
+					<img src="http://steamcommunity-a.akamaihd.net/public/images/login/throbber.gif" alt="A processar...">
+				</div>
+				<a id="market_removelisting_dialog_accept" href="#" class="btn_green_white_innerfade btn_medium_wide"><span>Remover anúncio</span></a>
+				<div style="clear: both"></div>
+			</div>
+		</div>
+		<div id="market_removelisting_dialog_error">
+		</div>
+	</div>
+</div><div id="market_advancedsearch_dialog" class="market_modal_dialog" style="display: none;">
+	<div>
+		<form id="market_advanced_search" accept-charset="UTF8" action="http://steamcommunity.com/market/search" method="GET" >
+			<div id="market_advancedsearch_left">
+					<input class="filter_search_box market_search_sidebar_search_box" type="text" id="advancedSearchBox" value="" placeholder="Procurar" name="q" autocomplete="off" tabindex="1" />
+					<input class="market_search_submit_button" id="advancedSearchSubmit" type="submit" value="Enviar" tabindex="3" />
+					<div id="market_advancedsearch_options">
+						<input class="market_search_checkbox" id="market_advanced_searchdescriptions_checkbox" type="checkbox" name="descriptions" value="1" title="Por defeito, o Mercado da Comunidade procurará apenas por resultados iguais nos nomes e tipos dos itens. Se marcares esta caixa, todo o texto nas descrições dos itens também será pesquisado. A pesquisa por resultados iguais nas descrições pode demorar mais tempo a ficar completa." tabindex="2" />
+						<label for="market_advanced_searchdescriptions_checkbox" title="Por defeito, o Mercado da Comunidade procurará apenas por resultados iguais nos nomes e tipos dos itens. Se marcares esta caixa, todo o texto nas descrições dos itens também será pesquisado. A pesquisa por resultados iguais nas descrições pode demorar mais tempo a ficar completa.">Incluir descrições na procura</label>
+					</div>
+			</div>
+			<div style="overflow: hidden">
+				<div class="market_app_selector">
+					<div class="appselect" id="market_advancedsearch_appselect" onclick="ShowMenu( 'market_advancedsearch_appselect', 'market_advancedsearch_appselect_options', 'left' );">
+						<div id="market_advancedsearch_appselect_activeapp" class="option">
+							<div id="app_option_0_selected" class="popup_item market_advancedsearch_appname">
+								<span>Todos os jogos</span>
+							</div>
+						</div>
+						<div id="appselect_arrow"></div>
+					</div>
+					<div id="market_advancedsearch_appselect_options" class="popup_block_new" style="display: none;">
+						<div id="market_advancedsearch_appselect_options_apps" class="popup_body popup_menu">
+							<div id="app_option_0" class="popup_item popup_menu_item market_advancedsearch_appname">
+								<span>Todos os jogos</span>
+							</div>
+															<div id="app_option_238460" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="238460">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/238460/2f258aaff583d797812cdcf24830d5992f48733b.jpg" alt="BattleBlock Theater" /><span>BattleBlock Theater</span>
+								</div>
+															<div id="app_option_730" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="730">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/730/69f7ebe2735c366c65c0b33dae00e12dc40edbe4.jpg" alt="Counter-Strike: Global Offensive" /><span>Counter-Strike: Global Offensive</span>
+								</div>
+															<div id="app_option_570" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="570">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/570/0bbb630d63262dd66d2fdd0f7d37e8661a410075.jpg" alt="Dota 2" /><span>Dota 2</span>
+								</div>
+															<div id="app_option_238960" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="238960">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/238960/1110764aac57ac28d7ffd8c43071c75d5482a9c9.jpg" alt="Path of Exile" /><span>Path of Exile</span>
+								</div>
+															<div id="app_option_251970" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="251970">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/251970/cee4aeadcf73b7b00018c535fa3b850bfcdb9982.jpg" alt="Sins of a Dark Age" /><span>Sins of a Dark Age</span>
+								</div>
+															<div id="app_option_753" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="753">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/753/135dc1ac1cd9763dfc8ad52f4e880d2ac058a36c.jpg" alt="Steam" /><span>Steam</span>
+								</div>
+															<div id="app_option_440" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="440">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/440/e3f595a92552da3d664ad00277fad2107345f743.jpg" alt="Team Fortress 2" /><span>Team Fortress 2</span>
+								</div>
+															<div id="app_option_230410" class="popup_item popup_menu_item market_advancedsearch_appname" data-appid="230410">
+									<img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/230410/2e271fb410bb8be5536a24d4114b42f9e5c91176.jpg" alt="Warframe" /><span>Warframe</span>
+								</div>
+													</div>
+					</div>
+				</div>
+				<div id="market_advancedsearch_filters" class="market_advancedsearch_filters">
+					Clica no botão acima e seleciona um jogo da lista para veres os filtros disponíveis.				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="market_advancedsearch_bottombuttons">
+		<a href="javascript:ResetSearchFilters();">Usar predefinições</a>
+		<a href="javascript:document.forms['market_advanced_search'].submit();" class="item_market_action_button item_market_action_button_green">
+			<span class="item_market_action_button_edge item_market_action_button_left"></span>
+			<span class="item_market_action_button_contents">
+				Procurar			</span>
+			<span class="item_market_action_button_edge item_market_action_button_right"></span>
+			<span class="item_market_action_button_preload"></span>
+		</a>
+	</div>
+</div>
+
+<!-- footer -->
+	<div id="footer_spacer"></div>
+	<div id="footer">
+		<div class="footer_content">
+			<span id="footerLogo"><img src="http://steamcommunity-a.akamaihd.net/public/images/skin_1/footerLogo_valve.png" width="96" height="26" border="0" alt="Logótipo da Valve" /></span>
+			<span id="footerText">
+				&copy; Valve Corporation. Todos os direitos reservados. Todas as marcas comerciais são propriedade dos respetivos proprietários nos E.U.A. e outros países. Alguns dados geoespaciais neste website são fornecidos por <a href="https://steamcommunity.com/linkfilter/http://www.geonames.org" target="_blank">geonames.org</a>.				<br>
+				<span class="valve_links">
+					<a href="http://store.steampowered.com/privacy_agreement/" target="_blank">Privacy Policy</a> | <a href="http://www.valvesoftware.com/legal.htm" target="_blank">Legal</a> | <a href="http://store.steampowered.com/subscriber_agreement/" target="_blank">Steam Subscriber Agreement</a>
+				</span>
+							
+							</span>
+		</div>
+	</div>
+
+	<!-- /footer -->
+
+<script type="text/javascript">
+var g_bLoggedIn = true;
+var g_rgWalletInfo = {"wallet_currency":7,"wallet_country":"BR","wallet_fee":1,"wallet_fee_minimum":1,"wallet_fee_percent":"0.05","wallet_publisher_fee_percent_default":"0.10","wallet_fee_base":0,"wallet_balance":5460,"wallet_max_balance":100000,"wallet_trade_max_balance":80000,"success":1,"rwgrsn":-2};
+var g_strCountryCode = "BR";
+var g_strLanguage = "portuguese";
+
+g_bModalModifyAnchorTargets = false;
+g_bModalCacheContent = false;
+</script>
+	<script type="text/javascript">
+		var g_rgAppContextData = {"753":{"appid":753,"name":"Steam","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/753\/135dc1ac1cd9763dfc8ad52f4e880d2ac058a36c.jpg","link":"http:\/\/steamcommunity.com\/app\/753"},"230410":{"appid":230410,"name":"Warframe","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/230410\/2e271fb410bb8be5536a24d4114b42f9e5c91176.jpg","link":"http:\/\/steamcommunity.com\/app\/230410"},"730":{"appid":730,"name":"Counter-Strike: Global Offensive","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/730\/69f7ebe2735c366c65c0b33dae00e12dc40edbe4.jpg","link":"http:\/\/steamcommunity.com\/app\/730"},"440":{"appid":440,"name":"Team Fortress 2","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/440\/e3f595a92552da3d664ad00277fad2107345f743.jpg","link":"http:\/\/steamcommunity.com\/app\/440"},"238960":{"appid":238960,"name":"Path of Exile","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/238960\/1110764aac57ac28d7ffd8c43071c75d5482a9c9.jpg","link":"http:\/\/steamcommunity.com\/app\/238960"},"238460":{"appid":238460,"name":"BattleBlock Theater","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/238460\/2f258aaff583d797812cdcf24830d5992f48733b.jpg","link":"http:\/\/steamcommunity.com\/app\/238460"},"570":{"appid":570,"name":"Dota 2","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/570\/0bbb630d63262dd66d2fdd0f7d37e8661a410075.jpg","link":"http:\/\/steamcommunity.com\/app\/570"},"251970":{"appid":251970,"name":"Sins of a Dark Age","icon":"http:\/\/cdn.akamai.steamstatic.com\/steamcommunity\/public\/images\/apps\/251970\/cee4aeadcf73b7b00018c535fa3b850bfcdb9982.jpg","link":"http:\/\/steamcommunity.com\/app\/251970"}};
+		var g_rgAssets = [];
+	var g_rgCurrency = [];
+	var g_rgListingInfo = [];
+
+	var g_rgRecents = {"sell_new":{"time":0,"listing":0},"sell_sold":{"time":0,"listing":0}};
+	var g_rgPreviousPopularData = [{"name":"Caixa Huntsman","sell_listings":18850,"sell_price":227},{"name":"Chave para Caixote Mann Co. ","sell_listings":4031,"sell_price":546},{"name":"Chave de Tesouro","sell_listings":7838,"sell_price":444},{"name":"Caixa da Opera\u00e7\u00e3o Phoenix","sell_listings":50499,"sell_price":89},{"name":"Pack - Cartas de Jogadores (2014)","sell_listings":26819,"sell_price":25},{"name":"25 Pontos do Comp\u00eandio","sell_listings":106678,"sell_price":15},{"name":"Chave: Caixa CS:GO","sell_listings":738,"sell_price":556},{"name":"Caixa da Ofensiva de Inverno","sell_listings":199352,"sell_price":20},{"name":"AK-47 | Redline (Testado no Terreno)","sell_listings":261,"sell_price":2684},{"name":"Chave: Caixa Huntsman ","sell_listings":712,"sell_price":577}];
+
+	var g_nResultCount = 10;
+
+	ITEM_HOVER_DELAY = 250;
+
+	Event.observe( document, 'dom:loaded', function() {
+		UserYou.LoadContexts( g_rgAppContextData );
+		
+		
+		MoreRecentListingsLink( 'sellListingsMore', 'sell_new', 'sellListingRows' );
+
+		MarketCheckHash();
+		
+		setTimeout( UpdateFrontPage, 1000 );
+	} );
+
+	Event.observe( $('modalContent'), 'modalContent:dismissed', function () {
+		RefreshMyMarketListings();
+	} );
+	</script>
+
+</body>
+</html>
+

@@ -1,0 +1,128 @@
+{
+    "success": true,
+    "assets": {
+        "753": {
+            "6": {
+                "775261854": {
+                    "currency": 0,
+                    "appid": 753,
+                    "contextid": "6",
+                    "id": "775261854",
+                    "classid": "165378297",
+                    "instanceid": "246376139",
+                    "amount": "1",
+                    "status": 2,
+                    "background_color": "",
+                    "icon_url": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-qjSc6MrUqLMLSzACmleqIV1DibTuCJizYG1s1GLYPPG7Q_jTx7eSTR2maR-grSw8CK6ADoGBPbM_faRA63NYC-je6xAptEBFucMpUdAqp9X0eMLoglXRHcs9SyyeiIJLejVo3YUFjWOnnVumUb9fzkyp3XR9uS_Mbbd2VvHDyuMmmfLGLLLwgJBCe",
+                    "icon_url_large": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-qjSc6MrUqLMLSzACmleqIV1DibTuCJizYG1s1GLYPPG7Q_jTx7eSTR2maR-grSw8CK6ADoGBPbM_faRA63NYC-je6xAptEBFucMpUdAqp9X0eMLoglXRHcs9SyyeiIJLejVo3YUFjWOnnVumUb9fzkyp3XR9uS_Mbbd2VvHDyuMmmfLGLLLwgJBCe",
+                    "descriptions": [{
+                        "type": "text",
+                        "value": "\"Two brothers fighting, for the crown, for the girl, for their amusement? Why, they duel with sharpened swords and have forgotten their brotherhood. One will live, one will die, one will regret this day.\""
+                    }],
+                    "tradable": 1,
+                    "owner_actions": [{
+                        "link": "http:\/\/steamcommunity.com\/my\/gamecards\/203770\/",
+                        "name": "#Profile_ViewBadgeProgress"
+                    }],
+                    "name": "The Duel",
+                    "name_color": "",
+                    "type": "Carta Colecion\u00e1vel - Crusader Kings II",
+                    "market_name": "The Duel",
+                    "market_hash_name": "203770-The Duel",
+                    "commodity": 1,
+                    "owner": "76561197984049299"
+                },
+                "775274626": {
+                    "currency": 0,
+                    "appid": 753,
+                    "contextid": "6",
+                    "id": "775274626",
+                    "classid": "149788596",
+                    "instanceid": "0",
+                    "amount": "1",
+                    "status": 2,
+                    "background_color": "",
+                    "icon_url": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-vjiQrcex4NM6b4gT3quODWn36aTDBcnLdTVpsSOVZMG-LrGXxsOnHQjvBF70oR1oCfKdX9zFNOMiMNxE1hoUVu2u_0UZyDBItYPpPfQ68zylEYr90zHVDcp4Am3D3I5DQg1xra0M5Cb3iALjLb4amxi4mDhgyHfNPesvL7zOq9ZYfLsDVHQ",
+                    "icon_url_large": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-vjiQrcex4NM6b4gT3quODWn36aTDBcnLdTVpsSOVZMG-LrGXxsOnHQjvBF70oR1oCfKdX9zFNOMiMNxE1hoUVu2u_0UZyDBItYPpPfQ68zylEYr90zHVDcp4Am3D3I5DQg1xra0M5Cb3iALjLb4amxi4mDhgyHfNPesvL7zOq9ZYfLsDVHQ",
+                    "descriptions": [{
+                        "type": "text",
+                        "value": ""
+                    }],
+                    "tradable": 1,
+                    "owner_actions": [{
+                        "link": "http:\/\/steamcommunity.com\/my\/gamecards\/730\/?border=1",
+                        "name": "#Profile_ViewBadgeProgress"
+                    }],
+                    "name": "Balkan (Foil)",
+                    "name_color": "",
+                    "type": "Carta Colecion\u00e1vel Foil - Counter-Strike: Global Offensive",
+                    "market_name": "Balkan (Foil)",
+                    "market_hash_name": "730-Balkan (Foil)",
+                    "commodity": 1,
+                    "owner": "76561197984049299"
+                },
+                "775274823": {
+                    "currency": 0,
+                    "appid": 753,
+                    "contextid": "6",
+                    "id": "775274823",
+                    "classid": "176457145",
+                    "instanceid": "0",
+                    "amount": "1",
+                    "status": 2,
+                    "background_color": "",
+                    "icon_url": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-rjSQrcex4NM6b4Qn3qOeJV1XkezbRIzWfFVNpGuZTN2yI-zqj47-TRT_JFOgkF1oNeqVXoGVLNM6IOhs_1YJZqjHrwkZ-Glg4fMIAcgCpznEBDrQoySYXeM1TnnL5Ip3Z1Fg2b05uWe3nVO7HPoHzxCZ2WhsxTKBLYIvE7SS5-Z_vKqnRO746ZdjIk_oI",
+                    "icon_url_large": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-rjSQrcex4NM6b4Qn3qOeJV1XkezbRIzWfFVNpGuZTN2yI-zqj47-TRT_JFOgkF1oNeqVXoGVLNM6IOhs_1YJZqjHrwkZ-Glg4fMIAcgCpznEBDrQoySYXeM1TnnL5Ip3Z1Fg2b05uWe3nVO7HPoHzxCZ2WhsxTKBLYIvE7SS5-Z_vKqnRO746ZdjIk_oI",
+                    "descriptions": [{
+                        "type": "text",
+                        "value": ""
+                    }],
+                    "tradable": 1,
+                    "owner_actions": [{
+                        "link": "http:\/\/steamcommunity.com\/my\/gamecards\/300\/",
+                        "name": "#Profile_ViewBadgeProgress"
+                    }],
+                    "name": "Allied Assault",
+                    "name_color": "",
+                    "type": "Carta Colecion\u00e1vel - Day of Defeat: Source",
+                    "market_name": "Allied Assault",
+                    "market_hash_name": "300-Allied Assault",
+                    "commodity": 1,
+                    "owner": "76561197984049299"
+                },
+                "775275466": {
+                    "currency": 0,
+                    "appid": 753,
+                    "contextid": "6",
+                    "id": "775275466",
+                    "classid": "214979383",
+                    "instanceid": "0",
+                    "amount": "1",
+                    "status": 2,
+                    "background_color": "",
+                    "icon_url": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-qjSQ_M7UqLMLSzACmi-2GGWaxYTrFKCSERQc9HuBZPW_f9zOl5rmSQzydF-h4Q18BLKRQ9GZIb8vcOhM_1YNd_Cuyh0M7HBk6dsBUTwa2y3MWbOkmnnhHcJJUzSXxJMGN0Q0xaRc7WO2xAL-QadCgk3okWhIxGKYfN46L-Hu77tH8ayPyAUDv",
+                    "icon_url_large": "IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-qjSQ_M7UqLMLSzACmi-2GGWaxYTrFKCSERQc9HuBZPW_f9zOl5rmSQzydF-h4Q18BLKRQ9GZIb8vcOhM_1YNd_Cuyh0M7HBk6dsBUTwa2y3MWbOkmnnhHcJJUzSXxJMGN0Q0xaRc7WO2xAL-QadCgk3okWhIxGKYfN46L-Hu77tH8ayPyAUDv",
+                    "descriptions": [{
+                        "type": "text",
+                        "value": ""
+                    }],
+                    "tradable": 1,
+                    "owner_actions": [{
+                        "link": "http:\/\/steamcommunity.com\/my\/gamecards\/200260\/?border=1",
+                        "name": "#Profile_ViewBadgeProgress"
+                    }],
+                    "name": "Joker (Foil)",
+                    "name_color": "",
+                    "type": "Carta Colecion\u00e1vel Foil - Batman: Arkham City GOTY",
+                    "market_name": "Joker (Foil)",
+                    "market_hash_name": "200260-Joker (Foil)",
+                    "commodity": 1,
+                    "owner": "76561197984049299"
+                }
+            }
+        }
+    },
+    "hovers": "\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047176798406_name', 753, '6', '775261854', 1 );\r\n\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047176798406_image', 753, '6', '775261854', 1 );\r\n\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047177599341_name', 753, '6', '775274626', 1 );\r\n\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047177599341_image', 753, '6', '775274626', 1 );\r\n\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047177611181_name', 753, '6', '775274823', 1 );\r\n\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047177611181_image', 753, '6', '775274823', 1 );\r\n\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047177647181_name', 753, '6', '775275466', 1 );\r\n\tCreateItemHoverFromContainer( g_rgAssets, 'mylisting_2800426047177647181_image', 753, '6', '775275466', 1 );\r\n",
+    "num_active_listings": 4,
+    "results_html": "<div class=\"market_content_block my_listing_section market_home_listing_table\">\r\n\t<h3 class=\"my_market_header\">\r\n\t\t<span class=\"my_market_header_active\">Vendas<\/span>\r\n\t\t<span class=\"my_market_header_count\">(<span id=\"my_market_selllistings_number\">4<\/span>)<\/span>\r\n\t<\/h3>\r\n\t\t\t<div class=\"market_listing_table_header\">\r\n\t\t\t<span class=\"market_listing_right_cell market_listing_edit_buttons\"><\/span>\r\n\t\t\t<span class=\"market_listing_right_cell market_listing_my_price\">PRE\u00c7O<\/span>\r\n\t\t\t<span class=\"market_listing_right_cell market_listing_listed_date\">ANUNCIADO A<\/span>\r\n\t\t\t<span><span class=\"market_listing_header_namespacer\"><\/span>NOME<\/span>\r\n\t\t<\/div>\r\n\t\t\r\n<div class=\"market_listing_row market_recent_listing_row listing_2800426047176798406\" id=\"mylisting_2800426047176798406\">\r\n\t\t<img id=\"mylisting_2800426047176798406_image\" src=\"http:\/\/steamcommunity-a.akamaihd.net\/economy\/image\/IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-qjSc6MrUqLMLSzACmleqIV1DibTuCJizYG1s1GLYPPG7Q_jTx7eSTR2maR-grSw8CK6ADoGBPbM_faRA63NYC-je6xAptEBFucMpUdAqp9X0eMLoglXRHcs9SyyeiIJLejVo3YUFjWOnnVumUb9fzkyp3XR9uS_Mbbd2VvHDyuMmmfLGLLLwgJBCe\/38fx38f\" style=\"\" class=\"market_listing_item_img\" alt=\"\" \/>\r\n\t\t<div class=\"market_listing_right_cell market_listing_edit_buttons\">\r\n\t\t<div class=\"market_listing_cancel_button\">\r\n\t\t\t<a href=\"javascript:RemoveMarketListing('mylisting', '2800426047176798406', 753, '6', '775261854')\" class=\"item_market_action_button item_market_action_button_edit\">\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_left\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_contents\">\r\n\t\t\t\t\tRemover\t\t\t\t<\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_right\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_preload\"><\/span>\r\n\t\t\t<\/a>\r\n\t\t<\/div>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_my_price\">\r\n\t\t<span class=\"market_table_value\">\r\n\t\t\t<span class=\"market_listing_price\">\r\n\t\t\t\t&#82;&#36; 4,36\t\t\t<\/span>\r\n\t\t<\/span>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_listed_date\">\r\n\t\t17 Jun\t<\/div>\r\n\r\n\t\t<div class=\"market_listing_item_name_block\">\r\n\t\t<span id=\"mylisting_2800426047176798406_name\" class=\"market_listing_item_name\" style=\"color: #;\"><a class=\"market_listing_item_name_link\" href=\"http:\/\/steamcommunity.com\/market\/listings\/753\/203770-The%20Duel\">The Duel<\/a><\/span><br\/>\r\n\t\t<span class=\"market_listing_game_name\">Carta Colecion\u00e1vel - Crusader Kings II<\/span>\r\n\t<\/div>\r\n<\/div>\r\n\r\n<div class=\"market_listing_row market_recent_listing_row listing_2800426047177599341\" id=\"mylisting_2800426047177599341\">\r\n\t\t<img id=\"mylisting_2800426047177599341_image\" src=\"http:\/\/steamcommunity-a.akamaihd.net\/economy\/image\/IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-vjiQrcex4NM6b4gT3quODWn36aTDBcnLdTVpsSOVZMG-LrGXxsOnHQjvBF70oR1oCfKdX9zFNOMiMNxE1hoUVu2u_0UZyDBItYPpPfQ68zylEYr90zHVDcp4Am3D3I5DQg1xra0M5Cb3iALjLb4amxi4mDhgyHfNPesvL7zOq9ZYfLsDVHQ\/38fx38f\" style=\"\" class=\"market_listing_item_img\" alt=\"\" \/>\r\n\t\t<div class=\"market_listing_right_cell market_listing_edit_buttons\">\r\n\t\t<div class=\"market_listing_cancel_button\">\r\n\t\t\t<a href=\"javascript:RemoveMarketListing('mylisting', '2800426047177599341', 753, '6', '775274626')\" class=\"item_market_action_button item_market_action_button_edit\">\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_left\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_contents\">\r\n\t\t\t\t\tRemover\t\t\t\t<\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_right\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_preload\"><\/span>\r\n\t\t\t<\/a>\r\n\t\t<\/div>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_my_price\">\r\n\t\t<span class=\"market_table_value\">\r\n\t\t\t<span class=\"market_listing_price\">\r\n\t\t\t\t&#82;&#36; 3,49\t\t\t<\/span>\r\n\t\t<\/span>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_listed_date\">\r\n\t\t17 Jun\t<\/div>\r\n\r\n\t\t<div class=\"market_listing_item_name_block\">\r\n\t\t<span id=\"mylisting_2800426047177599341_name\" class=\"market_listing_item_name\" style=\"color: #;\"><a class=\"market_listing_item_name_link\" href=\"http:\/\/steamcommunity.com\/market\/listings\/753\/730-Balkan%20%28Foil%29\">Balkan (Foil)<\/a><\/span><br\/>\r\n\t\t<span class=\"market_listing_game_name\">Carta Colecion\u00e1vel Foil - Counter-Strike: Global Offensive<\/span>\r\n\t<\/div>\r\n<\/div>\r\n\r\n<div class=\"market_listing_row market_recent_listing_row listing_2800426047177611181\" id=\"mylisting_2800426047177611181\">\r\n\t\t<img id=\"mylisting_2800426047177611181_image\" src=\"http:\/\/steamcommunity-a.akamaihd.net\/economy\/image\/IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-rjSQrcex4NM6b4Qn3qOeJV1XkezbRIzWfFVNpGuZTN2yI-zqj47-TRT_JFOgkF1oNeqVXoGVLNM6IOhs_1YJZqjHrwkZ-Glg4fMIAcgCpznEBDrQoySYXeM1TnnL5Ip3Z1Fg2b05uWe3nVO7HPoHzxCZ2WhsxTKBLYIvE7SS5-Z_vKqnRO746ZdjIk_oI\/38fx38f\" style=\"\" class=\"market_listing_item_img\" alt=\"\" \/>\r\n\t\t<div class=\"market_listing_right_cell market_listing_edit_buttons\">\r\n\t\t<div class=\"market_listing_cancel_button\">\r\n\t\t\t<a href=\"javascript:RemoveMarketListing('mylisting', '2800426047177611181', 753, '6', '775274823')\" class=\"item_market_action_button item_market_action_button_edit\">\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_left\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_contents\">\r\n\t\t\t\t\tRemover\t\t\t\t<\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_right\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_preload\"><\/span>\r\n\t\t\t<\/a>\r\n\t\t<\/div>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_my_price\">\r\n\t\t<span class=\"market_table_value\">\r\n\t\t\t<span class=\"market_listing_price\">\r\n\t\t\t\t&#82;&#36; 3,49\t\t\t<\/span>\r\n\t\t<\/span>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_listed_date\">\r\n\t\t17 Jun\t<\/div>\r\n\r\n\t\t<div class=\"market_listing_item_name_block\">\r\n\t\t<span id=\"mylisting_2800426047177611181_name\" class=\"market_listing_item_name\" style=\"color: #;\"><a class=\"market_listing_item_name_link\" href=\"http:\/\/steamcommunity.com\/market\/listings\/753\/300-Allied%20Assault\">Allied Assault<\/a><\/span><br\/>\r\n\t\t<span class=\"market_listing_game_name\">Carta Colecion\u00e1vel - Day of Defeat: Source<\/span>\r\n\t<\/div>\r\n<\/div>\r\n\r\n<div class=\"market_listing_row market_recent_listing_row listing_2800426047177647181\" id=\"mylisting_2800426047177647181\">\r\n\t\t<img id=\"mylisting_2800426047177647181_image\" src=\"http:\/\/steamcommunity-a.akamaihd.net\/economy\/image\/IzMF03bi9WpSBq-S-ekoE33L-iLqGFHVaU25ZzQNQcXdA3g5gMEPvUZZEaiHLrVJRsl8qWqXSZLWkIxMkWVd2H5fLn-qjSQ_M7UqLMLSzACmi-2GGWaxYTrFKCSERQc9HuBZPW_f9zOl5rmSQzydF-h4Q18BLKRQ9GZIb8vcOhM_1YNd_Cuyh0M7HBk6dsBUTwa2y3MWbOkmnnhHcJJUzSXxJMGN0Q0xaRc7WO2xAL-QadCgk3okWhIxGKYfN46L-Hu77tH8ayPyAUDv\/38fx38f\" style=\"\" class=\"market_listing_item_img\" alt=\"\" \/>\r\n\t\t<div class=\"market_listing_right_cell market_listing_edit_buttons\">\r\n\t\t<div class=\"market_listing_cancel_button\">\r\n\t\t\t<a href=\"javascript:RemoveMarketListing('mylisting', '2800426047177647181', 753, '6', '775275466')\" class=\"item_market_action_button item_market_action_button_edit\">\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_left\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_contents\">\r\n\t\t\t\t\tRemover\t\t\t\t<\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_edge item_market_action_button_right\"><\/span>\r\n\t\t\t\t<span class=\"item_market_action_button_preload\"><\/span>\r\n\t\t\t<\/a>\r\n\t\t<\/div>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_my_price\">\r\n\t\t<span class=\"market_table_value\">\r\n\t\t\t<span class=\"market_listing_price\">\r\n\t\t\t\t&#82;&#36; 4,36\t\t\t<\/span>\r\n\t\t<\/span>\r\n\t<\/div>\r\n\t<div class=\"market_listing_right_cell market_listing_listed_date\">\r\n\t\t17 Jun\t<\/div>\r\n\r\n\t\t<div class=\"market_listing_item_name_block\">\r\n\t\t<span id=\"mylisting_2800426047177647181_name\" class=\"market_listing_item_name\" style=\"color: #;\"><a class=\"market_listing_item_name_link\" href=\"http:\/\/steamcommunity.com\/market\/listings\/753\/200260-Joker%20%28Foil%29\">Joker (Foil)<\/a><\/span><br\/>\r\n\t\t<span class=\"market_listing_game_name\">Carta Colecion\u00e1vel Foil - Batman: Arkham City GOTY<\/span>\r\n\t<\/div>\r\n<\/div>\r\n\t<\/div>\r\n"
+}

@@ -122,9 +122,9 @@ testProduct('Test new Product Listins', function(product) {
         publisher_fee_percent: "0.10000000149011612",
         steam_fee: 4,
         steamid_lister: "76561198117447949",
-        in_deviation: true,
-        total_price: 1.53,
-        url: "jsons/product.json",
+//        in_deviation: true,
+//        total_price: 1.53,
+//        url: "jsons/product.json",
         in_deviation: true,
         total_price: 220,
         url: "jsons/product.json"

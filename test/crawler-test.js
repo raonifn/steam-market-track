@@ -18,14 +18,18 @@ testCrawlingDispatch = function (name, testSearch, theTest) {
   });
 };
 
+createClosure = function (ajaxInfo) {
+  return function (data) {
+    ajaxInfo.success.call(this, data);
+  };
+};
+
 consumeProducts = function (crawler, callback) {
   var ajaxes = [];
   while (crawler.ajax_manager.queue.length > 0) {
     var ajaxInfo = crawler.ajax_manager.queue.shift();
-    var deferred = $.get('jsons/product.json');
-    deferred.success(function (data) {
-      ajaxInfo.success.call(this, data);
-    }).fail(function () {
+    var deferred = $.getJSON('jsons/product.json');
+    deferred.success(createClosure(ajaxInfo)).fail(function () {
       ok(false, 'fail to get resource');
       start();
     });
@@ -39,32 +43,25 @@ consumeProducts = function (crawler, callback) {
 
 testCrawlingProductList = function (name, theTest) {
   asyncTest(name, function () {
-    var crawler = new Crawler();
-
     var list = [];
-    crawler.list('something', 0, function (product) {
+
+    var crawler = new Crawler(function (product) {
       list.push(product);
     });
 
-    var ajaxInfo = crawler.ajax_manager.queue.shift();
-    $.ajax({
-      url: 'jsons/crawling.json',
-      type: 'GET',
-      crawler: crawler,
-      list: list,
-      dataType: 'json',
-      success: function (data) {
-        ajaxInfo.success.call(this, data);
+    crawler.list('something');
 
-        consumeProducts(crawler, function () {
-          theTest(list);
-          start();
-        });
-      },
-      error: function () {
-        ok(false, 'fail to get resource');
+    var ajaxInfo = crawler.ajax_manager.queue.shift();
+    $.getJSON('jsons/crawling.json').success(function (data) {
+      ajaxInfo.success.call(this, data);
+
+      consumeProducts(crawler, function () {
+        theTest(list);
         start();
-      }
+      });
+    }).fail(function () {
+      ok(false, 'fail to get resource');
+      start();
     });
   });
 };
@@ -107,7 +104,8 @@ testCrawlingDispatch('Should dispatch all pages ajax after success', 'testSearch
 });
 
 testCrawlingProductList('Should callback each product url', function (productList) {
-  equal(productList.length, 387);
+//  equal(productList.length, 387);
+  equal(productList.length, 10);
 
   for (var i = 0; i < productList.length; i++) {
     var product = productList[i];

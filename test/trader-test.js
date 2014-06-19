@@ -19,15 +19,18 @@ function testTrader(name, url, callback) {
   });
 };
 
+function createConsumeClosure(ajaxInfo) {
+  return function (data) {
+    ajaxInfo.success.call(this, data);
+  };
+};
 
 function consumeListinsProducts(trader, callback) {
   var ajaxes = [];
   while (trader.search_ajax_manager.queue.length > 0) {
     var ajaxInfo = trader.search_ajax_manager.queue.shift();
-    var deferred = $.get('jsons/product.json');
-    deferred.success(function (data) {
-      ajaxInfo.success.call(this, data);
-    }).fail(function () {
+    var deferred = $.getJSON('jsons/product.json');
+    deferred.success(createConsumeClosure(ajaxInfo)).fail(function () {
       ok(false, 'fail to get resource');
       start();
     });
@@ -35,7 +38,10 @@ function consumeListinsProducts(trader, callback) {
     ajaxes.push(deferred);
   }
 
-  $.when.apply($, ajaxes).done(callback);
+  $.when.apply($, ajaxes).done(function () {
+    callback();
+    start();
+  });
 };
 
 function testSearchListings(name, callback) {
@@ -237,6 +243,19 @@ testTrader('Test dont Undercut', 'jsons/product.json', function (product) {
 });
 
 testSearchListings('Test Search Listings', function (result) {
-  equal(result.length, 3);
-  console.info(result);
+  equal(result.length, 4);
+
+  ok(contains(result, "2800426047176798406"));
+  ok(contains(result, "2800426047177599341"));
+  ok(contains(result, "2800426047177611181"));
+  ok(contains(result, "2800426047177647181"));
 });
+
+function contains(results, value) {
+  for (var k = 0; k < results.length; k++) {
+    if (results[k].listing.listingid == value) {
+      return true;
+    }
+  }
+  return false;
+};

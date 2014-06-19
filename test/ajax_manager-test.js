@@ -9,7 +9,6 @@ asyncTest( "Test start", function() {
     dataType: 'script',
     url: 'loader/loader1.js',
     success: function() {
-      console.info('started', started);
       ok(LOADER1, 'loader1 ok');
       ok(started, 'must be started');
       start();

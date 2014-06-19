@@ -146,6 +146,5 @@ testProduct('Test new Product Averages', function(product) {
 });
 
 testSearchProduct('Should search product', function(product) {
-    console.info(product);
     assertDefaultProduct(product);
 });

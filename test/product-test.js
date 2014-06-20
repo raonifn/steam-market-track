@@ -77,7 +77,7 @@ testProduct('Test new Product Listins', function(product) {
         asset: {
             amount: "1",
             appid: 753,
-            contextid: "6",
+            contextid: '6',
             currency: 0,
             id: "649955535"
         },
@@ -104,7 +104,7 @@ testProduct('Test new Product Listins', function(product) {
         asset: {
             amount: "1",
             appid: 753,
-            contextid: "6",
+            contextid: '6',
             currency: 0,
             id: "597037894"
         },
@@ -122,9 +122,6 @@ testProduct('Test new Product Listins', function(product) {
         publisher_fee_percent: "0.10000000149011612",
         steam_fee: 4,
         steamid_lister: "76561198117447949",
-//        in_deviation: true,
-//        total_price: 1.53,
-//        url: "jsons/product.json",
         in_deviation: true,
         total_price: 220,
         url: "jsons/product.json"

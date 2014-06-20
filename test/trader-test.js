@@ -116,6 +116,8 @@ function assertSell(listing, price, trader) {
     contextid: listing.asset.contextid,
     amount: 1,
     price: price,
+    appid: 753,
+    contextid: '6',
     assetid: listing.asset.id
   };
 
@@ -131,7 +133,7 @@ function assertBuy(listing, trader) {
     total: listing.converted_price + listing.converted_fee
   };
 
-  return assertTradeAjaxInfo('https://steamcommunity.com/market/buylisting/' + listing.asset.id, data, trader);
+  return assertTradeAjaxInfo('https://steamcommunity.com/market/buylisting/' + listing.listingid, data, trader);
 }
 
 
